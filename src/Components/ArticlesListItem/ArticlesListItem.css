@@ -1,0 +1,17 @@
+article {
+    margin: 20px 0;
+    border-bottom: 1px solid grey;
+}
+
+h3, h4 {
+    margin: 5px 0;
+}
+
+.thumbnail {
+    width: 270px;
+    height: 150px;
+}
+
+article > a {
+    margin-bottom: 5px;
+}

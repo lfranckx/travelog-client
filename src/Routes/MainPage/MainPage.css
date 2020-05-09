@@ -1,0 +1,9 @@
+main {
+    padding: 20px 180px;
+}
+
+main > section {
+    text-align: left;
+    padding: 20px 40px;
+    border-radius: 2px;
+}

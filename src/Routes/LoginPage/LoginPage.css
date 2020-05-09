@@ -1,0 +1,11 @@
+.login-section {
+    text-align: center;
+}
+
+.auth-form > * { 
+    margin: 10px;
+}
+
+.input-box > label {
+    margin: 0 10px;
+}
