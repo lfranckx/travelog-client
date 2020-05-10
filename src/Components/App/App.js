@@ -1,4 +1,3 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
 import { Switch, withRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -83,10 +82,10 @@ class App extends Component {
               path="/register"
               component={SignUpPage}
             />
-            {/* <Route 
+            <Route 
               path="/article/:articleId"
               component={ArticlePage}
-            /> */}
+            />
             {/* <Route 
               path="/results"
               component={ResultsPage}

@@ -1,5 +1,5 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
+import AuthApiService from '../../Services/auth-api-service'
 import ArticleContext from '../../Contexts/ArticleContext';
 
 export default class SignUpForm extends Component {
@@ -10,6 +10,34 @@ export default class SignUpForm extends Component {
     static contextType = ArticleContext;
 
     state = { error: null };
+
+    handleSubmit = ev => {
+        ev.preventDefault();
+        const { email, username, password, first_name, last_name } = ev.target;
+        this.setState({ error: null });
+        
+        AuthApiService.postUser({
+            email: email.value,
+            username: username.value,
+            password: password.value,
+            first_name: first_name.value,
+            last_name: last_name.value
+        })
+        .then(res => {
+            AuthApiService.postLogin({
+                username: username.value,
+                password: password.value
+            })
+            .then(user => {
+                username.value = ''
+                password.value = ''
+                this.props.onSignUpSuccess()
+            })
+        })
+        .catch(res => {
+            this.setState({ error: res.error })
+        });
+    }
 
     render() {
         const { error } = this.state;

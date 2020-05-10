@@ -1,5 +1,5 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
+import AuthApiService from '../../Services/auth-api-service';
 import ArticleContext from '../../Contexts/ArticleContext';
 
 export default class LoginForm extends Component {
@@ -11,23 +11,23 @@ export default class LoginForm extends Component {
 
     state = { error: null };
 
-    // handleSubmitJwtAuth = ev => {
-    //     ev.preventDefault();
-    //     this.setState({ error: null });
-    //     const { username, password } = ev.target;
-    //     AuthApiService.postLogin({
-    //         username: username.value,
-    //         user_password: password.value,
-    //       })
-    //       .then(res => {
-    //           username.value = '';
-    //           password.value = '';
-    //           this.props.onSubmitSuccess();
-    //       })
-    //       .catch(res => {
-    //           this.setState({ error: res.error });
-    //       });
-    // }
+    handleSubmitJwtAuth = ev => {
+        ev.preventDefault();
+        this.setState({ error: null });
+        const { username, password } = ev.target;
+        AuthApiService.postLogin({
+            username: username.value,
+            user_password: password.value,
+          })
+          .then(res => {
+              username.value = '';
+              password.value = '';
+              this.props.onSubmitSuccess();
+          })
+          .catch(res => {
+              this.setState({ error: res.error });
+          });
+    }
 
     render() {
         const { error } = this.state;

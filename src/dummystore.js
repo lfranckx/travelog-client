@@ -82,7 +82,7 @@ export default {
         },
         {
             "id": "5",
-            "name": "Deb Straus",
+            "name": "Warm Milk",
             "profile_image": "https://loremflickr.com/750/300/paris,girl/random=5",
             "about": "Sed semper neque rutrum, commodo massa egestas, suscipit justo. Aliquam aliquam nec libero in dictum. Sed tincidunt risus vitae lacus auctor commodo. Mauris pretium accumsan metus, in luctus enim sodales vel. Donec ullamcorper felis at nisi consectetur, ac varius neque mollis. Nulla sit amet ipsum et massa venenatis vulputate eget vitae odio. Curabitur posuere pulvinar lacinia. Suspendisse libero nulla, pellentesque ac ornare id, euismod et mi. Vestibulum sollicitudin ipsum sit amet finibus maximus. Sed id finibus risus, nec eleifend lectus. Sed aliquam neque nec risus consectetur mollis. Duis tortor erat, imperdiet sit amet sagittis eu, imperdiet in nulla. In ultricies purus eget eros iaculis, sit amet lacinia magna varius. Mauris ac venenatis lacus, et placerat tortor."
         },
