@@ -1,4 +1,3 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
 import './Header.css';
 import TokenService from '../../Services/token-service';
@@ -14,31 +13,29 @@ export default class Header extends Component {
 
     renderLogOutLink() {
         return (
-            <>
-                <header>
-                    <div className="header-container">
-                        <Link to="/"><h1>Travelog</h1></Link>
-                    </div>
-                    <div className="header-container">
-                        <label className="hidden">search</label>
-                        <button type="submit" name="search-button" id="search-button">
-                            <i class="fa fa-search"></i>
-                        </button>                        
-                        <input type="text" />
-                        <Link 
-                            onClick={this.handleLogOut}
-                            to="/">
-                            Log Out
-                        </Link>
-                    </div>
-                </header>
-            </>
+            <nav>
+                <div className="header-container">
+                    <Link to="/"><h1>Travelog</h1></Link>
+                </div>
+                <div className="header-container">
+                    <label className="hidden">search</label>
+                    <button type="submit" name="search-button" id="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>                        
+                    <input type="text" />
+                    <Link 
+                        onClick={this.handleLogOut}
+                        to="/">
+                        Log Out
+                    </Link>
+                </div>
+            </nav>
         );
     }
 
     renderLoginLink() {
         return (
-            <header>
+            <nav>
                 <div className="header-container">
                     <Link to="/"><h1>Travelog</h1></Link>
                 </div>
@@ -57,17 +54,17 @@ export default class Header extends Component {
                             Sign Up
                         </Link>
                     </div>
-            </header>
+            </nav>
         );
     }
 
     render() {
         return (
-            <>
+            <header>
                 {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()}
-            </>
+            </header>
         );
     }
 }
