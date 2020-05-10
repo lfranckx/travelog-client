@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 import Header from '../Header/Header';
-// import ArticlePage from '../../Routes/ArticlePage/ArticlePage';
+import ArticlePage from '../../Routes/ArticlePage/ArticlePage';
 // import AuthorPage from '../../Routes/AuthorPage/AuthorPage';
 // import BookmarksPage from '../../Routes/BookmarksPage/BookmarksPage';
 import LoginPage from '../../Routes/LoginPage/LoginPage';
@@ -82,10 +82,10 @@ class App extends Component {
               path="/register"
               component={SignUpPage}
             />
-            {/* <Route 
+            <Route 
               path="/article/:articleId"
               component={ArticlePage}
-            /> */}
+            />
             {/* <Route 
               path="/results"
               component={ResultsPage}

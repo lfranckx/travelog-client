@@ -13,10 +13,12 @@ export default class ArticlesListItem extends Component {
             <article>
                 <div>{article.date}</div>
                 <div>{article.author}</div>
-                <img className="thumbnail" src={article.image_url} alt="thumbnail" />
-                <h3>{article.title}</h3>
-                <h4>{article.description}</h4>
-                <Link href={`/article/${article.id}`}>Read more...</Link>
+                <Link to={`/article/${article.id}`}>
+                    <img className="thumbnail" src={article.image_url} alt="thumbnail" />
+                    <h3>{article.title}</h3>
+                    <h4>{article.description}</h4>
+                    <p>Read more...</p>
+                </Link>
             </article>
         );
     }
