@@ -6,9 +6,7 @@ export const nullArticle = {
     tags: [],
 };
 
-export const nullAuthor = {
-    name: ""
-};
+export const nullAuthor = {};
 
 const ArticleContext = React.createContext({
     error: null,
@@ -16,6 +14,7 @@ const ArticleContext = React.createContext({
     author: nullAuthor,
     articlesList: [],
     authorsList: [],
+    usersArticles: [],
     setError: () => {},
     clearError: () => {},
     setArticle: () => {},
@@ -23,7 +22,8 @@ const ArticleContext = React.createContext({
     setAuthor: () => {},
     clearAuthor: () => {},
     setArticlesList: () => {},
-    setAuthorsList: () => {}
+    setAuthorsList: () => {},
+    setUsersArticles: () => {}
 });
 export default ArticleContext;
 
@@ -33,7 +33,8 @@ export class ArticleProvider extends Component {
         article: nullArticle,
         author: nullAuthor,
         articlesList: [],
-        authorsList: []
+        authorsList: [],
+        usersArticles: []
     };
 
     setError = error => {
@@ -69,6 +70,10 @@ export class ArticleProvider extends Component {
         this.setState({ authorsList });
     }
 
+    setUsersArticles = usersArticles => {
+        this.setState({ usersArticles });
+    }
+
     render() {
         const value = {
             error: this.state.error,
@@ -76,6 +81,7 @@ export class ArticleProvider extends Component {
             author: this.state.author,
             articlesList: this.state.articlesList,
             authorsList: this.state.authorsList,
+            usersArticles: this.state.usersArticles,
             setError: this.setError,
             clearError: this.clearError,
             setArticle: this.setArticle,
@@ -83,7 +89,8 @@ export class ArticleProvider extends Component {
             setAuthor: this.setAuthor,
             clearAuthor: this.clearAuthor,
             setArticlesList: this.setArticlesList,
-            setAuthorsList: this.setAuthorsList
+            setAuthorsList: this.setAuthorsList,
+            setUsersArticles: this.setUsersArticles
         };
         
         return (

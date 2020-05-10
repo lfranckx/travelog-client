@@ -1,8 +1,8 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
 import ArticlesListItem from '../../Components/ArticlesListItem/ArticlesListItem';
 import ArticleContext from '../../Contexts/ArticleContext';
-import dummystore from '../../dummystore';
+import ArticleApiService from '../../Services/article-api-service';
+// import dummystore from '../../dummystore';
 import './MainPage.css';
 
 class MainPage extends Component {
@@ -10,8 +10,16 @@ class MainPage extends Component {
 
     componentDidMount() {
         this.context.clearError();
-        this.context.setArticlesList(dummystore.articles);
-        this.context.setAuthorsList(dummystore.authors);
+        // this.context.setArticlesList(dummystore.articles);
+        // this.context.setAuthorsList(dummystore.authors);
+        ArticleApiService.getArticles()
+            .then(this.context.setArticlesList)
+            .catch(this.context.setError);
+        // ArticleApiService.getByUserId()
+        //     .then(res => {
+        //         this.context.setUsersArticles(res);
+        //     })
+        //     .catch(this.context.setError);
     }
 
     renderArticles() {

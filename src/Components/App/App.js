@@ -82,10 +82,10 @@ class App extends Component {
               path="/register"
               component={SignUpPage}
             />
-            <Route 
+            {/* <Route 
               path="/article/:articleId"
               component={ArticlePage}
-            />
+            /> */}
             {/* <Route 
               path="/results"
               component={ResultsPage}
