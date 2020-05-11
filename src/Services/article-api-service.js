@@ -17,6 +17,7 @@ const ArticleApiService = {
     getArticle(id) {
         return fetch(`${config.API_ENDPOINT}/articles/${id}`, {
             headers: {
+                'Content-Type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
         })
@@ -58,7 +59,7 @@ const ArticleApiService = {
             body: JSON.stringify(article)
         });
     },
-    deletArticle(id) {
+    deleteArticle(id) {
         return fetch(`${config.API_ENDPOINT}/articles/${id}`, {
             method: 'DELETE',
             headers: {

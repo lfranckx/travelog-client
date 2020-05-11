@@ -13,7 +13,7 @@ export default class ArticlePage extends Component {
     componentDidMount() {
         const { articleId } = this.props.match.params;
         this.context.clearError();
-        this.context.setAuthor();
+        // this.context.setAuthor();
         ArticleApiService.getArticle(articleId)
             .then(this.context.setArticle)
             .catch(this.context.setError);
@@ -43,7 +43,7 @@ export default class ArticlePage extends Component {
 
     render() {
         const { error, article } = this.context;
-        console.log(this.context);
+        console.log('ArticlePage Context', this.context);
         
         let content;
         if (error) {
