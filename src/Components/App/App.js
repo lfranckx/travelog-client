@@ -10,7 +10,7 @@ import AuthorPage from '../../Routes/AuthorPage/AuthorPage';
 import LoginPage from '../../Routes/LoginPage/LoginPage';
 import MainPage from '../../Routes/MainPage/MainPage';
 // import PostArticlePage from '../../Routes/PostArticlePage/PostArticlePage';
-// import ProfilePage from '../../Routes/ProfilePage/ProfilePage';
+import ProfilePage from '../../Routes/ProfilePage/ProfilePage';
 // import ResultsPage from '../../Routes/ResultsPage/ResultsPage';
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage';
 
@@ -20,6 +20,7 @@ import IdleService from '../../Services/idle-service';
 
 // import PrivateRoute from '../../Utils/PrivateRoute';
 import PublicRoute from '../Utils/PublicRoute';
+import AuthorApiService from '../../Services/author-api-service';
 
 class App extends Component {
   constructor(props) {
@@ -42,8 +43,11 @@ class App extends Component {
       TokenService.queueCallbackBeforeExpiry(() => {
         AuthApiService.postRefreshToken();
       });
+      
+      AuthorApiService.getLoggedInAuthor()
+        .then(this.context.setUser)
+        .catch(this.context.setError);
     }
-
   }
 
   componentWillUnmount() {
@@ -65,9 +69,17 @@ class App extends Component {
         <main>
           {this.state.error && <p className="error">There was an error.</p>}
           <Switch>
-            <PublicRoute 
+            <Route 
               exact path={"/"}
               component={MainPage}
+            />
+            <Route 
+              path="/article/:articleId"
+              component={ArticlePage}
+            />
+            <Route 
+              path="/author/:authorId"
+              component={AuthorPage}
             />
             <PublicRoute 
               path="/login"
@@ -77,13 +89,9 @@ class App extends Component {
               path="/register"
               component={SignUpPage}
             />
-            <PublicRoute 
-              path="/article/:articleId"
-              component={ArticlePage}
-            />
-            <PublicRoute 
-              path="/author/:authorId"
-              component={AuthorPage}
+            <Route
+              path="/profile"
+              component={ProfilePage}
             />
             {/* <Route 
               path="/results"
@@ -96,11 +104,7 @@ class App extends Component {
             <Route 
               path="/post"
               component={PostArticlePage}
-            />
-            <Route
-              path="/profile"
-              component={ProfilePage}
-            /> */}
+            />*/}
           </Switch>
         </main>
       </>

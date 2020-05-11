@@ -3,6 +3,7 @@ import './Header.css';
 import TokenService from '../../Services/token-service';
 import IdleService from '../../Services/idle-service';
 import { Link } from 'react-router-dom';
+// import AuthorApiService from '../../Services/author-api-service';
 
 export default class Header extends Component {
     handleLogOut = () => {
@@ -13,11 +14,16 @@ export default class Header extends Component {
 
     renderLogOutLink() {
         return (
-            <Link 
-                onClick={this.handleLogOut}
-                to="/">
-                Logout
-            </Link>
+            <>
+                <Link to="/profile">
+                    Profile
+                </Link>
+                <Link 
+                    onClick={this.handleLogOut}
+                    to="/">
+                    Logout
+                </Link>
+            </>
         );
     }
 
@@ -48,8 +54,8 @@ export default class Header extends Component {
                             <i className="fa fa-search"></i>
                         </button>                        
                         <input type="text" />
-                    {TokenService.hasAuthToken() 
-                            ? this.renderLogoutLink()
+                        {TokenService.hasAuthToken() 
+                            ? this.renderLogOutLink()
                             : this.renderLoginLink()}
                     </div>
                 </nav>

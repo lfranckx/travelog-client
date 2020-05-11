@@ -14,7 +14,20 @@ const AuthorApiService = {
             : res.json()
         );    
     },
-    getAuthor(id) {
+    getLoggedInAuthor() {
+        return fetch(`${config.API_ENDPOINT}/authors/user/loggedin`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()    
+        );
+    },
+    getAuthorById(id) {
         return fetch(`${config.API_ENDPOINT}/authors/${id}`, {
             headers: {
                 'Content-Type': 'application/json',

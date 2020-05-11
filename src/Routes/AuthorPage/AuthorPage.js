@@ -8,7 +8,7 @@ import AuthorsListItem from '../../Components/AuthorsListItem/AuthorsListItem';
 
 export default class AuthorPage extends Component {
     static defaultProps = {
-        match: { params: {} },
+        match: { params: {} }
     }
 
     static contextType = ArticleContext;
@@ -16,7 +16,7 @@ export default class AuthorPage extends Component {
     componentDidMount() {
         const { authorId } = this.props.match.params;
         this.context.clearError();
-        AuthorApiService.getAuthor(authorId)
+        AuthorApiService.getAuthorById(authorId)
             .then(this.context.setAuthor)
             .catch(this.context.setError);
         ArticleApiService.getByUserId(authorId)
@@ -41,11 +41,9 @@ export default class AuthorPage extends Component {
                             alt="author-profile" />
                         <h2>{author.name}</h2>
                     </div>
-                    <div>
-                        <p>{author.about}</p>
-                    </div>
+                    <p>{author.about}</p>
                 </section>
-                <section className="authors-list-item">
+                <section className="authors-articles">
                     {usersArticles.map(article => 
                         <AuthorsListItem 
                             key={article.id}

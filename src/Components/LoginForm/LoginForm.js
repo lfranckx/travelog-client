@@ -19,14 +19,14 @@ export default class LoginForm extends Component {
             username: username.value,
             password: password.value,
           })
-          .then(res => {
-              username.value = '';
-              password.value = '';
-              this.props.onSubmitSuccess();
-          })
-          .catch(res => {
-              this.setState({ error: res.error });
-          });
+        .then(res => {
+            username.value = '';
+            password.value = '';
+            this.props.onSubmitSuccess();
+        })
+        .catch(res => {
+            this.setState({ error: res.error });
+        });
     }
 
     render() {
