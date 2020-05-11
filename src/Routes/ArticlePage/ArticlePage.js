@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ArticleContext from '../../Contexts/ArticleContext'; 
 import './ArticlePage.css';
+import ArticleContext from '../../Contexts/ArticleContext'; 
 import ArticleApiService from '../../Services/article-api-service';
 
 export default class ArticlePage extends Component {
@@ -13,7 +13,6 @@ export default class ArticlePage extends Component {
     componentDidMount() {
         const { articleId } = this.props.match.params;
         this.context.clearError();
-        // this.context.setAuthor();
         ArticleApiService.getArticle(articleId)
             .then(this.context.setArticle)
             .catch(this.context.setError);
@@ -26,18 +25,16 @@ export default class ArticlePage extends Component {
     renderArticle() {
         const { article, author } = this.context;
         return (
-            <>
-                <section className="article-page">
-                    <div className="author-container">
-                        <div>{article.author}</div>
-                        <img src={author.profile_image} alt="author-profile"/> 
-                    </div>
-                    <img src={article.image_url} alt={article.image_filename || "something"}/>
-                    <p>
-                        {article.body}
-                    </p>
-                </section>
-            </>
+            <section className="article-page">
+                <div className="author-container">
+                    <div>{article.author}</div>
+                    <img src={author.profile_image} alt="author-profile"/> 
+                </div>
+                <img src={article.image_url} alt={article.image_filename || "something"}/>
+                <p>
+                    {article.body}
+                </p>
+            </section>
         );
     }
 

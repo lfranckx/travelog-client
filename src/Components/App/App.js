@@ -5,7 +5,7 @@ import './App.css';
 
 import Header from '../Header/Header';
 import ArticlePage from '../../Routes/ArticlePage/ArticlePage';
-// import AuthorPage from '../../Routes/AuthorPage/AuthorPage';
+import AuthorPage from '../../Routes/AuthorPage/AuthorPage';
 // import BookmarksPage from '../../Routes/BookmarksPage/BookmarksPage';
 import LoginPage from '../../Routes/LoginPage/LoginPage';
 import MainPage from '../../Routes/MainPage/MainPage';
@@ -86,13 +86,13 @@ class App extends Component {
               path="/article/:articleId"
               component={ArticlePage}
             />
+            <Route 
+              path="/author/:authorId"
+              component={AuthorPage}
+            />
             {/* <Route 
               path="/results"
               component={ResultsPage}
-            />
-            <Route 
-              path="/author"
-              component={AuthorPage}
             />
             <Route 
               path="/bookmarks"

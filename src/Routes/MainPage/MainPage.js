@@ -19,15 +19,14 @@ class MainPage extends Component {
     }
 
     renderArticles() {
-        const { articlesList = [] } = this.context;
-        if (!articlesList) {
-            return <div className="loading">Loading...</div>;        
-        }
+        const { articlesList = [] } = this.context; 
+        const { authorsList = [] } = this.context;
 
         return articlesList.map(article => 
             <ArticlesListItem 
                 key={article.id}
                 article={article}
+                authors={authorsList}
             />
         );
     }
