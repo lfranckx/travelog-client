@@ -13,57 +13,46 @@ export default class Header extends Component {
 
     renderLogOutLink() {
         return (
-            <nav>
-                <div className="header-container">
-                    <Link to="/"><h1>Travelog</h1></Link>
-                </div>
-                <div className="header-container">
-                    <label className="hidden">search</label>
-                    <button type="submit" name="search-button" id="search-button">
-                        <i class="fa fa-search"></i>
-                    </button>                        
-                    <input type="text" />
-                    <Link 
-                        onClick={this.handleLogOut}
-                        to="/">
-                        Log Out
-                    </Link>
-                </div>
-            </nav>
+            <Link 
+                onClick={this.handleLogOut}
+                to="/">
+                Logout
+            </Link>
         );
     }
 
     renderLoginLink() {
         return (
-            <nav>
-                <div className="header-container">
-                    <Link to="/"><h1>Travelog</h1></Link>
-                </div>
-                    <div className="header-container">
-                        <label className="hidden">search</label>
-                        <button type="submit" name="search-button" id="search-button">
-                            <i className="fa fa-search"></i>
-                        </button>
-                        <input type="text" />
-                        <Link 
-                            to="/login">
-                            Login
-                        </Link>
-                        <Link 
-                            to="/register">
-                            Sign Up
-                        </Link>
-                    </div>
-            </nav>
+            <>
+                <Link to="/login">
+                    Login
+                </Link>
+                <Link 
+                    to="/register">
+                    Register
+                </Link>
+            </>
         );
     }
 
     render() {
         return (
             <header>
-                {TokenService.hasAuthToken()
-                    ? this.renderLogoutLink()
-                    : this.renderLoginLink()}
+                <nav>
+                    <div className="header-container">
+                        <Link to="/"><h1>Travelog</h1></Link>
+                    </div>
+                    <div className="header-container">
+                        <label className="hidden">search</label>
+                        <button type="submit" name="search-button" id="search-button">
+                            <i className="fa fa-search"></i>
+                        </button>                        
+                        <input type="text" />
+                    {TokenService.hasAuthToken() 
+                            ? this.renderLogoutLink()
+                            : this.renderLoginLink()}
+                    </div>
+                </nav>
             </header>
         );
     }

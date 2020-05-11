@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ArticlePage.css';
 import ArticleContext from '../../Contexts/ArticleContext'; 
 import ArticleApiService from '../../Services/article-api-service';
+import { Link } from 'react-router-dom';
 
 export default class ArticlePage extends Component {
     static defaultProps = {
@@ -23,14 +24,17 @@ export default class ArticlePage extends Component {
     }
 
     renderArticle() {
-        const { article, author } = this.context;
+        const { article } = this.context;
+
         return (
             <section className="article-page">
-                <div className="author-container">
+                <h2>{article.title}</h2>
+                <Link to={`/author/${article.user_id}`} className="author-container">
+                    <img src={article.profile_image} alt="author-profile" className="profile-image"/> 
                     <div>{article.author}</div>
-                    <img src={author.profile_image} alt="author-profile"/> 
-                </div>
+                </Link>
                 <img src={article.image_url} alt={article.image_filename || "something"}/>
+                
                 <p>
                     {article.body}
                 </p>
@@ -41,7 +45,7 @@ export default class ArticlePage extends Component {
     render() {
         const { error, article } = this.context;
         console.log('ArticlePage Context', this.context);
-        
+
         let content;
         if (error) {
             content = (error.error === "Article doesn't exist")

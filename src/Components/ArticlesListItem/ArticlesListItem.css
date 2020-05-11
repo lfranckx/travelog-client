@@ -1,18 +1,34 @@
-article {
-    margin: 20px 0;
+.main-page-articles article {
+    padding: 10px 0;
     border-bottom: 1px solid grey;
+}
+
+.main-page-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.main-page-container > * {
+    margin: 5px;
+}
+
+.author {
+    color: #03a87c;
 }
 
 h3, h4 {
     margin: 5px 0;
 }
 
-.thumbnail {
-    width: 270px;
-    height: 150px;
+.author-profile {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
 }
 
-article > a {
-    margin-bottom: 5px;
-    color: #27374c;
+.thumbnail {
+    width: 400px;
+    height: 225px;
 }

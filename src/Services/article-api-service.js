@@ -26,8 +26,8 @@ const ArticleApiService = {
             : res.json()
         );
     },
-    getByUserId() {
-        return fetch(`${config.API_ENDPOINT}/articles/user/id`, {
+    getByUserId(id) {
+        return fetch(`${config.API_ENDPOINT}/articles/user/${id}`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },

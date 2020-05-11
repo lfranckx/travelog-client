@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './ArticlesListItem.css';
 import { Link } from 'react-router-dom';
 
-import './ArticlesListItem.css';
 
 export default class ArticlesListItem extends Component {
     
@@ -21,10 +21,22 @@ export default class ArticlesListItem extends Component {
         
         return (
                 <article>
-                    <div>{article.date}</div>
-                    <Link to={`/author/${authorObject.author_id}`}>
-                        <div>{article.author}</div>
-                    </Link>
+                    <div className="main-page-container">
+                        <Link 
+                                to={`/author/${authorObject.author_id}`}
+                                className="author">
+                            <img src={article.profile_image} alt="author-profile" className="author-profile" />
+                        </Link>
+                        <div>
+                            <Link 
+                                to={`/author/${authorObject.author_id}`}
+                                className="author">
+                                {article.author}
+                            </Link>
+                            <div>{article.date}</div>
+                        </div>
+                    </div>
+                    
                     <Link to={`/article/${article.id}`}>
                         <img className="thumbnail" src={article.image_url} alt="thumbnail" />
                         <h3>{article.title}</h3>

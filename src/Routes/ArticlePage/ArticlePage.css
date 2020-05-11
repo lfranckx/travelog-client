@@ -1,0 +1,16 @@
+.author-container {
+    color: #27374c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.author-container > * {
+    margin: 10px 5px;
+}
+
+.profile-image {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}

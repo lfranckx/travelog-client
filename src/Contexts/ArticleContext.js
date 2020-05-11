@@ -8,13 +8,15 @@ export const nullArticle = {
 
 export const nullAuthor = {};
 
+export const nullUsersArticles = [];
+
 const ArticleContext = React.createContext({
     error: null,
     article: nullArticle,
     author: nullAuthor,
     articlesList: [],
     authorsList: [],
-    usersArticles: [],
+    usersArticles: nullUsersArticles,
     setError: () => {},
     clearError: () => {},
     setArticle: () => {},
@@ -23,7 +25,8 @@ const ArticleContext = React.createContext({
     clearAuthor: () => {},
     setArticlesList: () => {},
     setAuthorsList: () => {},
-    setUsersArticles: () => {}
+    setUsersArticles: () => {},
+    clearUsersArticles: () => {}
 });
 export default ArticleContext;
 
@@ -74,6 +77,10 @@ export class ArticleProvider extends Component {
         this.setState({ usersArticles });
     }
 
+    clearUsersArticles = () => {
+        this.setUsersArticles(nullUsersArticles);
+    }
+
     render() {
         const value = {
             error: this.state.error,
@@ -90,7 +97,8 @@ export class ArticleProvider extends Component {
             clearAuthor: this.clearAuthor,
             setArticlesList: this.setArticlesList,
             setAuthorsList: this.setAuthorsList,
-            setUsersArticles: this.setUsersArticles
+            setUsersArticles: this.setUsersArticles,
+            clearUsersArticles: this.clearUsersArticles
         };
         
         return (

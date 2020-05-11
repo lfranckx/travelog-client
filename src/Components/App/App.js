@@ -19,7 +19,7 @@ import AuthApiService from '../../Services/auth-api-service';
 import IdleService from '../../Services/idle-service';
 
 // import PrivateRoute from '../../Utils/PrivateRoute';
-// import PublicRoute from '../../Utils/PublicRoute';
+import PublicRoute from '../Utils/PublicRoute';
 
 class App extends Component {
   constructor(props) {
@@ -58,11 +58,6 @@ class App extends Component {
     this.forceUpdate();
   }
 
-  stringifyArray(array) {
-    let copiedObj = JSON.parse(JSON.stringify(array));
-    return copiedObj;
-  }
-
   render() {
     return (
       <>
@@ -70,23 +65,23 @@ class App extends Component {
         <main>
           {this.state.error && <p className="error">There was an error.</p>}
           <Switch>
-            <Route 
+            <PublicRoute 
               exact path={"/"}
               component={MainPage}
             />
-            <Route 
+            <PublicRoute 
               path="/login"
               component={LoginPage}
             />
-            <Route 
+            <PublicRoute 
               path="/register"
               component={SignUpPage}
             />
-            <Route 
+            <PublicRoute 
               path="/article/:articleId"
               component={ArticlePage}
             />
-            <Route 
+            <PublicRoute 
               path="/author/:authorId"
               component={AuthorPage}
             />

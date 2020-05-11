@@ -35,7 +35,7 @@ class MainPage extends Component {
         const { error } = this.context;
         console.log('mainpage context', this.context);
         return (
-            <section>
+            <section className="main-page-articles">
                 <h2>Stories</h2>
                 {error
                     ? <p className='error' >There was an error try again</p>
