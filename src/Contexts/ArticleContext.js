@@ -70,7 +70,6 @@ export class ArticleProvider extends Component {
 
     setUser = user => {
         console.log('setting user:', user);
-        
         this.setState({ user });
     };
 

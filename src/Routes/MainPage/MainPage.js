@@ -4,6 +4,7 @@ import ArticlesListItem from '../../Components/ArticlesListItem/ArticlesListItem
 import ArticleContext from '../../Contexts/ArticleContext';
 import ArticleApiService from '../../Services/article-api-service';
 import AuthorApiService from '../../Services/author-api-service';
+import TokenService from '../../Services/token-service';
 
 class MainPage extends Component {
     static contextType = ArticleContext;
@@ -16,6 +17,12 @@ class MainPage extends Component {
         AuthorApiService.getAuthors()
             .then(this.context.setAuthorsList)
             .catch(this.context.setError);
+        if(TokenService.hasAuthToken()){
+            AuthorApiService.getLoggedInAuthor()
+                .then(this.context.setUser)
+                .catch(this.context.setError);
+        }
+        
     }
 
     renderArticles() {
@@ -33,7 +40,7 @@ class MainPage extends Component {
 
     render() {
         const { error } = this.context;
-        console.log('mainpage context', this.context);
+        // console.log('mainpage context', this.context);
         return (
             <section className="main-page-articles">
                 <h2>Stories</h2>

@@ -9,20 +9,26 @@ import AuthorPage from '../../Routes/AuthorPage/AuthorPage';
 // import BookmarksPage from '../../Routes/BookmarksPage/BookmarksPage';
 import LoginPage from '../../Routes/LoginPage/LoginPage';
 import MainPage from '../../Routes/MainPage/MainPage';
-// import PostArticlePage from '../../Routes/PostArticlePage/PostArticlePage';
+import PostArticlePage from '../../Routes/PostArticlePage/PostArticlePage';
 import ProfilePage from '../../Routes/ProfilePage/ProfilePage';
 // import ResultsPage from '../../Routes/ResultsPage/ResultsPage';
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage';
+import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage';
 
 import TokenService from '../../Services/token-service';
 import AuthApiService from '../../Services/auth-api-service';
 import IdleService from '../../Services/idle-service';
-
-// import PrivateRoute from '../../Utils/PrivateRoute';
-import PublicRoute from '../Utils/PublicRoute';
 import AuthorApiService from '../../Services/author-api-service';
 
+import ArticleContext from '../../Contexts/ArticleContext';
+
+import PrivateRoute from '../Utils/PrivateRoute';
+import PublicOnlyRoute from '../Utils/PublicRoute';
+
 class App extends Component {
+
+  static contextType = ArticleContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +49,6 @@ class App extends Component {
       TokenService.queueCallbackBeforeExpiry(() => {
         AuthApiService.postRefreshToken();
       });
-      
       AuthorApiService.getLoggedInAuthor()
         .then(this.context.setUser)
         .catch(this.context.setError);
@@ -81,30 +86,35 @@ class App extends Component {
               path="/author/:authorId"
               component={AuthorPage}
             />
-            <PublicRoute 
+            <PublicOnlyRoute 
               path="/login"
               component={LoginPage}
             />
-            <PublicRoute 
+            <PublicOnlyRoute 
               path="/register"
               component={SignUpPage}
             />
-            <Route
+            <PrivateRoute
               path="/profile"
               component={ProfilePage}
             />
-            {/* <Route 
-              path="/results"
-              component={ResultsPage}
-            />
-            <Route 
-              path="/bookmarks"
-              component={BookmarksPage}
-            />
-            <Route 
+            <PrivateRoute 
               path="/post"
               component={PostArticlePage}
-            />*/}
+            />
+            <PrivateRoute 
+              path="/upload/:articleId"
+              component={UploadImagePage}
+            />
+            {/*<Route 
+              path="/results"
+              component={ResultsPage}
+            /> */}
+            
+            {/* <PrivateRoute 
+              path="/bookmarks"
+              component={BookmarksPage}
+            /> */}
           </Switch>
         </main>
       </>

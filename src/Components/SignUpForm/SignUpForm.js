@@ -15,23 +15,24 @@ export default class SignUpForm extends Component {
         ev.preventDefault();
         const { email, username, password, first_name, last_name } = ev.target;
         this.setState({ error: null });
-        
-        AuthApiService.postUser({
+        const newUser = {
             email: email.value,
             username: username.value,
             password: password.value,
             first_name: first_name.value,
             last_name: last_name.value
-        })
+        }
+        console.log(newUser);
+        AuthApiService.postUser(newUser)
         .then(res => {
             AuthApiService.postLogin({
                 username: username.value,
-                password: password.value
+                password: password.value,
             })
             .then(user => {
                 username.value = ''
                 password.value = ''
-                this.props.onSignUpSuccess()
+                this.props.onSubmitSuccess()
             })
         })
         .catch(res => {
@@ -44,7 +45,7 @@ export default class SignUpForm extends Component {
         return (
             <form
                 className="auth-form"
-                onSubmit={this.handleSubmitJwtAuth}
+                onSubmit={this.handleSubmit}
             >
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                 <div className="input-box">
@@ -81,9 +82,9 @@ export default class SignUpForm extends Component {
                     <label>First Name</label>
                     <input
                         type="text" 
-                        name='first-name' 
-                        aria-label='first-name'
-                        className='first-name' 
+                        name='first_name' 
+                        aria-label='first_name'
+                        className='first_name' 
                         required
                     />
                 </div>
@@ -91,12 +92,13 @@ export default class SignUpForm extends Component {
                     <label>Last Name</label>
                     <input
                         type="text" 
-                        name='last-name' 
-                        aria-label='last-name'
-                        className='last-name' 
+                        name='last_name' 
+                        aria-label='last_name'
+                        className='last_name' 
                         required
                     />
                 </div>
+                <button type="submit">Register</button>
             </form>
         );
     }

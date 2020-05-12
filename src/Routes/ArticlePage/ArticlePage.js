@@ -24,16 +24,20 @@ export default class ArticlePage extends Component {
     }
 
     renderArticle() {
-        const { article } = this.context;
+        const { article, user } = this.context;
 
         return (
             <section className="article-page">
                 <h2>{article.title}</h2>
                 <Link to={`/author/${article.user_id}`} className="author-container">
-                    <img src={article.profile_image} alt="author-profile" className="profile-image"/> 
+                    <img src={user.profile_image} alt="author-profile" className="profile-image"/> 
                     <div>{article.author}</div>
                 </Link>
-                <img src={article.image_url} alt={article.image_filename || "something"}/>
+                <img 
+                    src={article.image_url} 
+                    alt={article.image_filename || "something"}
+                    className="article-image"
+                />
                 
                 <p>
                     {article.body}

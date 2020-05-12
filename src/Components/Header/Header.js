@@ -18,6 +18,9 @@ export default class Header extends Component {
                 <Link to="/profile">
                     Profile
                 </Link>
+                <Link to="/post">
+                    Post
+                </Link>
                 <Link 
                     onClick={this.handleLogOut}
                     to="/">

@@ -1,0 +1,30 @@
+.post-form {
+    text-align: center;
+}
+
+.post-form > div {
+    margin: 5px
+}
+
+.post-form .title {
+    font-size: 3rem;
+    padding: 5px;
+    width: 100%;
+}
+
+
+.post-form .description {
+    font-size: 2rem;
+    padding: 5px;
+    width: 100%;
+}  
+
+.post-form .body {
+    font-size: 1.5rem;
+    padding: 5px;
+    width: 100%;
+}
+
+.upload-box > * {
+    margin: 5px;
+}

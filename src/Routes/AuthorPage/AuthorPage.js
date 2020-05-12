@@ -64,7 +64,7 @@ export default class AuthorPage extends Component {
             content = (error.error === "Author doesn't exist")
                 ? <p className="error">Author not found</p>
                 : <p className="error">There was an error</p>;
-        } else if(!author.author_id) {
+        } else if(!author.user_id) {
             content = <div className="loading">Loading...</div>;
         } else {
             content = this.renderAuthor();

@@ -6,11 +6,15 @@
 }
 
 .author-container > * {
-    margin: 10px 5px;
+    margin: px 5px;
 }
 
 .profile-image {
     height: 60px;
     width: 60px;
     border-radius: 50%;
+}
+
+.article-image {
+    width: 60%;
 }

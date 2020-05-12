@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './ProfilePage.css';
 import ArticleContext from '../../Contexts/ArticleContext'; 
-import AuthorApiService from '../../Services/author-api-service';
+// import AuthorApiService from '../../Services/author-api-service';
 import ArticleApiService from '../../Services/article-api-service';
-// import AuthorsListItem from '../../Components/AuthorsListItem/AuthorsListItem';
+import AuthorsListItem from '../../Components/AuthorsListItem/AuthorsListItem';
 
 export default class ProfilePage extends Component {
 
@@ -11,14 +11,14 @@ export default class ProfilePage extends Component {
 
     componentDidMount() {
         this.context.clearError();
-        AuthorApiService.getLoggedInAuthor()
-            .then(this.context.setUser)
-            .catch(this.context.setError);
-        // ArticleApiService.getByUserId(
-        //     this.context.user.author_id
-        //   )
-        //     .then(this.context.setUsersArticles)
-        //     .catch(this.context.clearError);
+        const { user } = this.context;
+        if (user.length !== 0) {
+            ArticleApiService.getByUserId(
+                this.context.user.user_id
+            )
+                .then(this.context.setUsersArticles)
+                .catch(this.context.clearError);
+        }        
     }
 
     componentWillUnmount() {
@@ -28,8 +28,9 @@ export default class ProfilePage extends Component {
 
     render() {
         const { user, usersArticles } = this.context;
-        console.log('users articles', usersArticles);
-        
+        if (user.length === 0) {
+            return <div className="loading">Loading...</div>
+        }
         return (
             <>
                 <section className="profile-page">
@@ -42,14 +43,14 @@ export default class ProfilePage extends Component {
                     </div>
                     <p>{user.about}</p>
                 </section>
-                {/* <section className="authors-articles">
+                <section className="authors-articles">
                     {usersArticles.map(article => 
                         <AuthorsListItem 
                             key={article.id}
                             article={article}
                         />
                     )}
-                </section> */}
+                </section>
             </>
         );
     }

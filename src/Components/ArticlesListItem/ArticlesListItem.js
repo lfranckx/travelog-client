@@ -10,7 +10,7 @@ export default class ArticlesListItem extends Component {
 
         let authorObject;
         authors.map(author => {
-            if (author.author_id === article.user_id)
+            if (author.user_id === article.user_id)
                 authorObject = author; 
             return authorObject;
         });
@@ -23,13 +23,13 @@ export default class ArticlesListItem extends Component {
                 <article>
                     <div className="main-page-container">
                         <Link 
-                                to={`/author/${authorObject.author_id}`}
+                                to={`/author/${authorObject.user_id}`}
                                 className="author">
                             <img src={article.profile_image} alt="author-profile" className="author-profile" />
                         </Link>
                         <div>
                             <Link 
-                                to={`/author/${authorObject.author_id}`}
+                                to={`/author/${authorObject.user_id}`}
                                 className="author">
                                 {article.author}
                             </Link>

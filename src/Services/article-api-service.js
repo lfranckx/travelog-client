@@ -80,7 +80,6 @@ const ArticleApiService = {
         // Remove 'Content-Type' header to allow browser to add
         // along with the correct 'boundary'
         delete options.headers['Content-Type'];
-    
         return fetch(`${config.API_ENDPOINT}/upload`, options);
     }
 };
