@@ -3,9 +3,12 @@ import './Header.css';
 import TokenService from '../../Services/token-service';
 import IdleService from '../../Services/idle-service';
 import { Link } from 'react-router-dom';
+import ArticleContext from '../../Contexts/ArticleContext';
 // import AuthorApiService from '../../Services/author-api-service';
 
 export default class Header extends Component {
+    static contextType = ArticleContext;
+
     handleLogOut = () => {
         TokenService.clearAuthToken();
         TokenService.clearCallbackBeforeExpiry();
@@ -13,9 +16,10 @@ export default class Header extends Component {
     }
 
     renderLogOutLink() {
+        const { user } = this.context;
         return (
             <>
-                <Link to="/profile">
+                <Link to={`/profile/${user.username}`}>
                     Profile
                 </Link>
                 <Link to="/post">

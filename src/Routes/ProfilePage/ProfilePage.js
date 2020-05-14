@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import './ProfilePage.css';
 import ArticleContext from '../../Contexts/ArticleContext'; 
-// import AuthorApiService from '../../Services/author-api-service';
+import AuthorApiService from '../../Services/author-api-service';
 import ArticleApiService from '../../Services/article-api-service';
 import AuthorsListItem from '../../Components/AuthorsListItem/AuthorsListItem';
+import { Link } from 'react-router-dom';
 
 export default class ProfilePage extends Component {
+
+    static defaultProps = {
+        match: { params: {} }
+    }
 
     static contextType = ArticleContext;
 
     componentDidMount() {
         this.context.clearError();
         const { user } = this.context;
+        const { username } = this.props.match.params;
+        AuthorApiService.getLoggedInAuthor()
+            .then(this.context.setUser)
+            .catch(this.context.setError);
         if (user.length !== 0) {
-            ArticleApiService.getByUserId(
-                this.context.user.user_id
-            )
+            ArticleApiService.getByUsername(username)
                 .then(this.context.setUsersArticles)
-                .catch(this.context.clearError);
+                .catch(this.context.setError);
         }        
     }
 
@@ -27,6 +34,7 @@ export default class ProfilePage extends Component {
     }
 
     render() {
+        const { username } = this.props.match.params;
         const { user, usersArticles } = this.context;
         if (user.length === 0) {
             return <div className="loading">Loading...</div>
@@ -42,6 +50,7 @@ export default class ProfilePage extends Component {
                         <h2>{user.name}</h2>
                     </div>
                     <p>{user.about}</p>
+                    <Link to={`/editprofile/${username}`}>Edit Profile</Link>
                 </section>
                 <section className="authors-articles">
                     {usersArticles.map(article => 

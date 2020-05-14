@@ -27,8 +27,8 @@ const AuthorApiService = {
                 : res.json()    
         );
     },
-    getAuthorById(id) {
-        return fetch(`${config.API_ENDPOINT}/authors/${id}`, {
+    getByUsername(username) {
+        return fetch(`${config.API_ENDPOINT}/authors/${username}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -52,7 +52,9 @@ const AuthorApiService = {
         return (Response, json);
     },
     updateAuthor(author) {
-        return fetch(`${config.API_ENDPOINT}/authors/${author.author_id}`, {
+        console.log('sending author', author);
+        
+        return fetch(`${config.API_ENDPOINT}/authors/${author.username}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,6 +71,22 @@ const AuthorApiService = {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         });
+    },
+    uploadFile(file) {
+        console.log('sending file', file);
+        
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': '.png, .jpg, .jpeg .gif',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: file
+        };
+        // Remove 'Content-Type' header to allow browser to add
+        // along with the correct 'boundary'
+        delete options.headers['Content-Type'];
+        return fetch(`${config.API_ENDPOINT}/upload`, options);
     }
 };
 

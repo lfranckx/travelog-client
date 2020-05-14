@@ -7,6 +7,7 @@ import AuthorsListItem from '../../Components/AuthorsListItem/AuthorsListItem';
 
 
 export default class AuthorPage extends Component {
+    
     static defaultProps = {
         match: { params: {} }
     }
@@ -14,12 +15,12 @@ export default class AuthorPage extends Component {
     static contextType = ArticleContext;
 
     componentDidMount() {
-        const { authorId } = this.props.match.params;
+        const { username } = this.props.match.params;
         this.context.clearError();
-        AuthorApiService.getAuthorById(authorId)
+        AuthorApiService.getByUsername(username)
             .then(this.context.setAuthor)
             .catch(this.context.setError);
-        ArticleApiService.getByUserId(authorId)
+        ArticleApiService.getByUsername(username)
             .then(this.context.setUsersArticles)
             .catch(this.context.clearError);
     }
@@ -29,7 +30,7 @@ export default class AuthorPage extends Component {
         this.context.clearUsersArticles();
     }
 
-    renderAuthor() {
+    renderAuthor() {        
         const { author, usersArticles } = this.context;
         return (
             <>
@@ -56,15 +57,14 @@ export default class AuthorPage extends Component {
     }
 
     render() {
-        const { error, author } = this.context;
-        console.log('AuthorPage Context', this.context);
-        
+        console.log('authorPage context', this.context);
+        const { error, author } = this.context;        
         let content;
         if (error) {
             content = (error.error === "Author doesn't exist")
                 ? <p className="error">Author not found</p>
                 : <p className="error">There was an error</p>;
-        } else if(!author.user_id) {
+        } else if(!author.username) {
             content = <div className="loading">Loading...</div>;
         } else {
             content = this.renderAuthor();

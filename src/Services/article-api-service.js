@@ -26,8 +26,8 @@ const ArticleApiService = {
             : res.json()
         );
     },
-    getByUserId(id) {
-        return fetch(`${config.API_ENDPOINT}/articles/user/${id}`, {
+    getByUsername(username) {
+        return fetch(`${config.API_ENDPOINT}/articles/user/${username}`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
@@ -60,6 +60,8 @@ const ArticleApiService = {
         });
     },
     deleteArticle(id) {
+        console.log('deleting article with id', id);
+        
         return fetch(`${config.API_ENDPOINT}/articles/${id}`, {
             method: 'DELETE',
             headers: {

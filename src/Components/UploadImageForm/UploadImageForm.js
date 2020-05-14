@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ArticleApiService from '../../Services/article-api-service';
 import ArticleContext from '../../Contexts/ArticleContext';
+import { Link } from 'react-router-dom';
 
 export default class UploadImageForm extends Component {
     static defaultProps = {
@@ -21,14 +22,10 @@ export default class UploadImageForm extends Component {
     handleSingleFileUpload = ev => {
         ev.preventDefault();
         this.setState({ error: null });
-
         const { article } = this.context;        
         const fileSelected = this.fileInput.current.files[0];
-        console.log(fileSelected);
-        
-        let data = new FormData();
+        const data = new FormData();
         data.append('image', fileSelected)
-        console.log(data.get('image'));
         
         ArticleApiService.uploadFile(data)
             .then(res => {
@@ -44,7 +41,7 @@ export default class UploadImageForm extends Component {
     }
 
     render() {
-        console.log('uploadform context', this.context);
+        const { article } = this.props 
         const { error } = this.state;
         return (
             <form
@@ -52,15 +49,20 @@ export default class UploadImageForm extends Component {
                 onSubmit={this.handleSingleFileUpload}
             >
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
-                <label>Select an image to upload:</label>
-                    <input 
-                        ref={this.fileInput}
-                        type="file"
-                        accept=".png, .jpg, .jpeg .gif"
-                        name="file" 
-                        aria-label='file'
-                        className="file" />
-                    <button id="upload-button" type="submit">Upload Image</button>
+                <div>
+                    <label>Select an image to upload:</label>
+                        <input 
+                            ref={this.fileInput}
+                            type="file"
+                            accept=".png, .jpg, .jpeg .gif"
+                            name="file" 
+                            aria-label='file'
+                            className="file" />
+                        <button id="upload-button" type="submit">Upload Image</button>
+                </div>
+                <Link to={`/article/${article.id}`}>
+                    <button>Skip</button>
+                </Link>
             </form>
         )
     }

@@ -1,4 +1,3 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
 import SignUpForm from '../../Components/SignUpForm/SignUpForm';
 import './SignUpPage.css';

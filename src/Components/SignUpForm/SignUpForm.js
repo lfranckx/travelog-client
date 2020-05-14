@@ -25,14 +25,22 @@ export default class SignUpForm extends Component {
         console.log(newUser);
         AuthApiService.postUser(newUser)
         .then(res => {
-            AuthApiService.postLogin({
+            AuthApiService.postAuthor({
                 username: username.value,
-                password: password.value,
+                name: first_name.value + ' ' + last_name.value,
+                about: "",
+                profile_image: ""
             })
-            .then(user => {
-                username.value = ''
-                password.value = ''
-                this.props.onSubmitSuccess()
+            .then(res => {
+                AuthApiService.postLogin({
+                    username: username.value,
+                    password: password.value,
+                })
+                .then(user => {
+                    username.value = ''
+                    password.value = ''
+                    this.props.onSubmitSuccess()
+                })
             })
         })
         .catch(res => {
@@ -71,7 +79,7 @@ export default class SignUpForm extends Component {
                 <div className="input-box">
                     <label>Password</label>
                     <input
-                        type="text" 
+                        type="password" 
                         name='password' 
                         aria-label='password'
                         className='password' 

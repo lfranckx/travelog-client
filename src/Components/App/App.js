@@ -14,6 +14,7 @@ import ProfilePage from '../../Routes/ProfilePage/ProfilePage';
 // import ResultsPage from '../../Routes/ResultsPage/ResultsPage';
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage';
 import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage';
+import EditProfilePage from '../../Routes/EditProfilePage/EditProfilePage';
 
 import TokenService from '../../Services/token-service';
 import AuthApiService from '../../Services/auth-api-service';
@@ -68,6 +69,8 @@ class App extends Component {
   }
 
   render() {
+    console.log('context', this.context);
+        
     return (
       <>
         <Header />
@@ -83,7 +86,7 @@ class App extends Component {
               component={ArticlePage}
             />
             <Route 
-              path="/author/:authorId"
+              path="/author/:username"
               component={AuthorPage}
             />
             <PublicOnlyRoute 
@@ -95,7 +98,7 @@ class App extends Component {
               component={SignUpPage}
             />
             <PrivateRoute
-              path="/profile"
+              path="/profile/:username"
               component={ProfilePage}
             />
             <PrivateRoute 
@@ -105,6 +108,10 @@ class App extends Component {
             <PrivateRoute 
               path="/upload/:articleId"
               component={UploadImagePage}
+            />
+            <PrivateRoute 
+              path="/editprofile/:username"
+              component={EditProfilePage}
             />
             {/*<Route 
               path="/results"

@@ -40,7 +40,7 @@ class MainPage extends Component {
 
     render() {
         const { error } = this.context;
-        // console.log('mainpage context', this.context);
+        console.log('mainpage context', this.context);
         return (
             <section className="main-page-articles">
                 <h2>Stories</h2>

@@ -1,10 +1,7 @@
 /*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
 
-export const nullArticle = {
-    author: {},
-    tags: [],
-};
+export const nullArticle = {};
 export const nullAuthor = {};
 export const nullUser = {};
 export const nullUsersArticles = [];

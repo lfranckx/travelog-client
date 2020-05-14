@@ -9,22 +9,15 @@ export default class PostArticleForm extends Component {
 
     static contextType = ArticleContext;
 
-    constructor(props) {
-        super(props)
-        this.fileInput = React.createRef()
-        this.state = {
-            error: null,
-            fileSelected: null
-        }
+    state = {
+        error: null
     }
 
     handleSubmitPost = ev => {
         ev.preventDefault();
         this.setState({ error: null });
         
-        const { user } = this.context;
-        console.log('PostArticleForm user from context', user);
-        
+        const { user } = this.context;        
         const { title, description, body } = ev.target;
         const newArticle = {
             title: title.value,
@@ -32,7 +25,8 @@ export default class PostArticleForm extends Component {
             body: body.value,
             author: user.name,
             username: user.username,
-            image_url: ""
+            image_url: "",
+            profile_image: user.profile_image
         }
         console.log('newArticle', newArticle);
         
@@ -49,6 +43,10 @@ export default class PostArticleForm extends Component {
 
     render() {
         const { error } = this.state;
+        const { user } = this.context;
+        console.log('PostArticleForm user from context', user);
+        console.log(user.profile_image);
+
         return (
             <form
                 className="post-form"

@@ -1,4 +1,4 @@
-.authors-list-item > article {
+.authors-articles > article {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -6,11 +6,16 @@
     border-bottom: 1px solid grey;
 }
 
-.authors-list-item .thumbnail {
+.authors-articles .thumbnail {
     height: 100px;
     width: 166px;
 }
 
 .list-item-container {
     margin-left: 20px;
+}
+
+.trash {
+    height: 10px;
+    width: 10px;
 }

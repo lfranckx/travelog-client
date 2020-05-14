@@ -1,4 +1,3 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
 import LoginForm from '../../Components/LoginForm/LoginForm';
 import './LoginPage.css';
@@ -19,14 +18,12 @@ export default class LoginPage extends Component {
 
     render() {
         return (
-            <>
-                <section className="login-section">
-                    <h2>Login</h2>
-                    <LoginForm 
-                        onSubmitSuccess={this.handleSubmitSuccess}
-                    />
-                </section>
-            </>
+            <section className="login-section">
+                <h2>Login</h2>
+                <LoginForm 
+                    onSubmitSuccess={this.handleSubmitSuccess}
+                />
+            </section>
         );
     }
 }
