@@ -18,8 +18,8 @@ export default class EditProfilePage extends Component {
     handleSubmitForm = () => {
         const { user } = this.context;
         const { location, history } = this.props;
-        const destination = (location.state || {}).from || `/profile/${user.username}`
-        history.push(destination)    
+        const destination = (location.state || {}).from || `/profile/${user.username}`;
+        history.push(destination);
     }
 
     render() {       

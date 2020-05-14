@@ -1,4 +1,3 @@
-/*eslint semi: ["error", "always"]*/
 import React, { Component } from 'react';
 
 export const nullArticle = {};
@@ -25,13 +24,15 @@ const ArticleContext = React.createContext({
     setArticlesList: () => {},
     setAuthorsList: () => {},
     setUsersArticles: () => {},
-    clearUsersArticles: () => {}
+    clearUsersArticles: () => {},
+    updateSearch: () => {}
 });
 export default ArticleContext;
 
 export class ArticleProvider extends Component {
     state = {
         error: null,
+        search: '',
         article: nullArticle,
         author: nullAuthor,
         user: nullUser,
@@ -46,6 +47,7 @@ export class ArticleProvider extends Component {
     };
 
     clearError = () => {
+        console.log('clearing error');
         this.setState({ error: null });
     };
 
@@ -60,10 +62,12 @@ export class ArticleProvider extends Component {
     };
 
     setAuthor = author => {
+        console.log('setting author', author);
         this.setState({ author });
     };
 
     clearAuthor = () => {
+        console.log('clearing author');
         this.setAuthor(nullAuthor);
     };
 
@@ -73,6 +77,8 @@ export class ArticleProvider extends Component {
     };
 
     clearUser = () => {
+        console.log('clearing user');
+        
         this.setState(nullUser);
     };
 
@@ -89,12 +95,18 @@ export class ArticleProvider extends Component {
     };
 
     clearUsersArticles = () => {
+        console.log('clearing usersArticles');
         this.setUsersArticles(nullUsersArticles);
+    };
+
+    updateSearch = search => {
+        this.setState({ search: search.substr(0, 20) });
     };
 
     render() {
         const value = {
             error: this.state.error,
+            search: this.state.search,
             article: this.state.article,
             author: this.state.author,
             user: this.state.user,
@@ -112,7 +124,8 @@ export class ArticleProvider extends Component {
             setArticlesList: this.setArticlesList,
             setAuthorsList: this.setAuthorsList,
             setUsersArticles: this.setUsersArticles,
-            clearUsersArticles: this.clearUsersArticles
+            clearUsersArticles: this.clearUsersArticles,
+            updateSearch: this.updateSearch
         };
         
         return (

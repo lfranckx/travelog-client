@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './ArticlesListItem.css';
 import { Link } from 'react-router-dom';
-
+import ArticleContext from '../../Contexts/ArticleContext';
 
 export default class ArticlesListItem extends Component {
-    
+    static contextType = ArticleContext;
+
     render() {
         const { article, authors } = this.props;
-        
+        const date = article.date.slice(0, 16);
+
         let authorObject;
         authors.map(author => {
             if (author.username === article.username)
@@ -18,14 +20,12 @@ export default class ArticlesListItem extends Component {
             return <div className="loading">Loading...</div>
         }
         
-        const date = article.date.slice(0, 16);
-
         return (
             <article>
                 <div className="main-page-container">
                     <Link 
-                            to={`/author/${authorObject.username}`}
-                            className="author">
+                        to={`/author/${authorObject.username}`}
+                        className="author">
                         <img src={article.profile_image} alt="author-profile" className="author-profile" />
                     </Link>
                     <div>

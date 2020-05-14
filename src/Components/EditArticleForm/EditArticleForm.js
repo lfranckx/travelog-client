@@ -11,7 +11,7 @@ export default class EditArticleForm extends Component {
     static contextType = ArticleContext;
 
     constructor(props) {
-        super(props)
+        super(props);
         this.fileInput = React.createRef();
         this.state = {
             error: null,
@@ -52,6 +52,10 @@ export default class EditArticleForm extends Component {
                         article.image_url = data.image_url;
                         ArticleApiService.updateArticle(article)
                         .then(this.context.setArticle(article))
+                        .then(
+                            ArticleApiService.getByUsername(user.username)
+                            .then(this.context.setUsersArticles)
+                        )
                         .catch(this.context.setError);
                     })
                 })

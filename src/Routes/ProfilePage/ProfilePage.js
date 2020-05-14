@@ -16,18 +16,13 @@ export default class ProfilePage extends Component {
 
     componentDidMount() {
         this.context.clearError();
-        console.log('ProfilePage Mounting');
-        
-        const { user } = this.context;
         const { username } = this.props.match.params;
         AuthorApiService.getLoggedInAuthor()
             .then(this.context.setUser)
             .catch(this.context.setError);
-        if (user.length !== 0) {
-            ArticleApiService.getByUsername(username)
-                .then(this.context.setUsersArticles)
-                .catch(this.context.setError);
-        }        
+        ArticleApiService.getByUsername(username)
+            .then(this.context.setUsersArticles)
+            .catch(this.context.setError);       
     }
 
     componentWillUnmount() {

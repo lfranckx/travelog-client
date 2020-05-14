@@ -27,6 +27,8 @@ const ArticleApiService = {
         );
     },
     getByUsername(username) {
+        console.log('GETTING ARTICLES BY USERNAME', username);
+        
         return fetch(`${config.API_ENDPOINT}/articles/user/${username}`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -38,6 +40,8 @@ const ArticleApiService = {
         );
     },
     async postArticle(article) {
+        console.log('POSTING ARTICLE', article);
+        
         const Response = await fetch(`${config.API_ENDPOINT}/articles`, {
             method: 'POST',
             headers: {
@@ -62,6 +66,7 @@ const ArticleApiService = {
         });
     },
     deleteArticle(id) {
+        console.log('DELETING ARTICLE');
         return fetch(`${config.API_ENDPOINT}/articles/${id}`, {
             method: 'DELETE',
             headers: {

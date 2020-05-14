@@ -11,12 +11,12 @@ export default class EditProfileForm extends Component {
     static contextType = ArticleContext;
 
     constructor(props) {
-        super(props)
+        super(props);
         this.fileInput = React.createRef();
         this.state = {
             error: null,
             fileSelected: null
-        }
+        };
     }
 
     handleUpdateProfile = ev => {

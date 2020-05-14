@@ -21,10 +21,27 @@ export default class AuthorsListItem extends Component {
             })
     }
 
+
     render() {
         const { article } = this.props;
+        const { user } = this.context;
         const date = article.date.slice(0, 16);
 
+        if (user.username !== article.username) {
+            return (
+                <article>
+                <Link to={`/article/${article.id}`}>
+                    <img src={article.image_url} alt="thumbnail" className="thumbnail"/>
+                </Link>
+                <Link to={`/article/${article.id}`} className="list-item-container">
+                    <h3>{article.title}</h3>
+                    <h4>{article.description}</h4>
+                    <div>{date}</div>
+                    <div>Read more</div>
+                </Link>
+            </article>
+            )
+        }
         return (
             <article>
                 <Link to={`/article/${article.id}`}>
@@ -36,7 +53,7 @@ export default class AuthorsListItem extends Component {
                     <div>{date}</div>
                     <div>Read more</div>
                 </Link>
-                <div>
+                <div id="article-buttons">
                     <Link to={`/edit/${article.id}`}>
                         <button>
                             <img 

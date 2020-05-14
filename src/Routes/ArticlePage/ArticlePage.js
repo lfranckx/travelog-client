@@ -25,17 +25,36 @@ export default class ArticlePage extends Component {
 
     renderArticle() {
         const { article, user } = this.context;
-
+        console.log('user', user);
+        // Link to user's profile page if their article
+        if (user.username === article.username) {
+            return (<section className="article-page">
+                        <h2>{article.title}</h2>
+                        <Link to={`/profile/${user.username}`} className="author-container">
+                            <img src={user.profile_image} alt="author-profile" className="profile-image"/> 
+                            <div>{article.author}</div>
+                        </Link>
+                        <img 
+                            src={article.image_url} 
+                            alt={article.title}
+                            className="article-image"
+                        />
+                        
+                        <p>
+                            {article.body}
+                        </p>
+                    </section>)
+        }
         return (
             <section className="article-page">
                 <h2>{article.title}</h2>
-                <Link to={`/author/${article.user_id}`} className="author-container">
-                    <img src={user.profile_image} alt="author-profile" className="profile-image"/> 
+                <Link to={`/author/${article.username}`} className="author-container">
+                    <img src={article.profile_image} alt="author-profile" className="profile-image"/> 
                     <div>{article.author}</div>
                 </Link>
                 <img 
                     src={article.image_url} 
-                    alt={article.image_filename || "something"}
+                    alt={article.title}
                     className="article-image"
                 />
                 
@@ -48,8 +67,6 @@ export default class ArticlePage extends Component {
 
     render() {
         const { error, article } = this.context;
-        console.log('ArticlePage Context', this.context);
-
         let content;
         if (error) {
             content = (error.error === "Article doesn't exist")

@@ -22,14 +22,29 @@ class MainPage extends Component {
                 .then(this.context.setUser)
                 .catch(this.context.setError);
         }
-        
+    }
+
+    searchFor(term) {
+        return function(x) {
+            return x.first.toLowerCase().includes(term.toLowerCase()) || !term;
+        };
     }
 
     renderArticles() {
-        const { articlesList = [] } = this.context; 
-        const { authorsList = [] } = this.context;
+        const { articlesList, authorsList } = this.context; 
+        // sort by date closest to current date
+        articlesList.sort(function(a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
 
-        return articlesList.map(article => 
+        // search filter by title
+        let filteredList = articlesList.filter(article => {
+            return article.title.toLowerCase().indexOf(
+                this.context.search.toLowerCase()
+            ) !== -1;
+        });
+
+        return filteredList.map(article => 
             <ArticlesListItem 
                 key={article.id}
                 article={article}
@@ -40,7 +55,6 @@ class MainPage extends Component {
 
     render() {
         const { error } = this.context;
-        console.log('mainpage context', this.context);
         return (
             <section className="main-page-articles">
                 <h2>Stories</h2>

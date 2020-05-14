@@ -4,7 +4,7 @@ import TokenService from '../../Services/token-service';
 import IdleService from '../../Services/idle-service';
 import { Link } from 'react-router-dom';
 import ArticleContext from '../../Contexts/ArticleContext';
-// import AuthorApiService from '../../Services/author-api-service';
+import SearchBar from '../Searchbar/Searchbar';
 
 export default class Header extends Component {
     static contextType = ArticleContext;
@@ -19,6 +19,7 @@ export default class Header extends Component {
         const { user } = this.context;
         return (
             <>
+                <Link to='/'>Home</Link>
                 <Link to={`/profile/${user.username}`}>
                     Profile
                 </Link>
@@ -53,14 +54,12 @@ export default class Header extends Component {
             <header>
                 <nav>
                     <div className="header-container">
-                        <Link to="/"><h1>Travelog</h1></Link>
+                        <Link to="/" >
+                            <h1>Travelog</h1>
+                        </Link>
+                        <SearchBar />
                     </div>
-                    <div className="header-container">
-                        <label className="hidden">search</label>
-                        <button type="submit" name="search-button" id="search-button">
-                            <i className="fa fa-search"></i>
-                        </button>                        
-                        <input type="text" />
+                    <div className="header-container">                     
                         {TokenService.hasAuthToken() 
                             ? this.renderLogOutLink()
                             : this.renderLoginLink()}

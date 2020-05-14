@@ -28,6 +28,8 @@ const AuthorApiService = {
         );
     },
     getByUsername(username) {
+        console.log('GET AUTHOR BY USERNAME', username);
+        
         return fetch(`${config.API_ENDPOINT}/authors/${username}`, {
             headers: {
                 'Content-Type': 'application/json',

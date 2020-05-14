@@ -17,7 +17,7 @@ export default class PostArticlePage extends Component {
         const { user } = this.context;
         const { location, history } = this.props;
         const destination = (location.state || {}).from || `/profile/${user.username}`;
-        history.push(destination)
+        history.push(destination);
     }
 
     render() {

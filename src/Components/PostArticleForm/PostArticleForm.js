@@ -53,6 +53,10 @@ export default class PostArticleForm extends Component {
                             article.image_url = data.image_url;
                             ArticleApiService.updateArticle(article)
                             .then(this.context.setArticle(article))
+                            .then(
+                                ArticleApiService.getByUsername(user.username)
+                                .then(this.context.setUsersArticles)
+                            )
                             .catch(this.context.setError);
                         })
                     })
@@ -65,6 +69,7 @@ export default class PostArticleForm extends Component {
 
     render() {
         const { error } = this.state;
+        
         return (
             <form
                 className="post-form"
@@ -88,7 +93,7 @@ export default class PostArticleForm extends Component {
                         name='title'
                         aria-label='title'
                         className='title'
-                        defaultValue='Title'
+                        placeholder='Title'
                         required
                     />
                 </div>
@@ -98,7 +103,7 @@ export default class PostArticleForm extends Component {
                         name='description'
                         aria-label='description'
                         className='description'
-                        defaultValue='tell a little description...'
+                        placeholder='tell a little description...'
                         required
                     />
                 </div>
@@ -108,7 +113,7 @@ export default class PostArticleForm extends Component {
                         name='body'
                         aria-label='body'
                         className='body'
-                        defaultValue='tell your story...'
+                        placeholder='tell your story...'
                         required
                     />
                 </div>

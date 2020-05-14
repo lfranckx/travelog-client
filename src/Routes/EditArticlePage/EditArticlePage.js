@@ -25,6 +25,9 @@ export default class EditArticlePage extends Component {
 
     handleSubmitForm = () => {
         const { user } = this.context;
+        ArticleApiService.getByUsername(user.username)
+            .then(this.context.setUsersArticles)
+            .catch(this.context.setError);
         const { location, history } = this.props;
         const destination = (location.state || {}).from || `/profile/${user.username}`;
         history.push(destination)    
