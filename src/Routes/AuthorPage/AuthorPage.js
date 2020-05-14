@@ -14,7 +14,7 @@ export default class AuthorPage extends Component {
 
     static contextType = ArticleContext;
 
-    componentDidMount() {
+    componentDidMount() {        
         const { username } = this.props.match.params;
         this.context.clearError();
         AuthorApiService.getByUsername(username)

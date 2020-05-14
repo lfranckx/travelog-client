@@ -23,8 +23,6 @@ export default class EditProfilePage extends Component {
     }
 
     render() {       
-        const { user } = this.context;
-        console.log('user', user); 
         return (
             <section className="edit-profile-section">
                 <h2>Edit Profile</h2>

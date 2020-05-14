@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import ArticleContext from '../../Contexts/ArticleContext';
 import ArticleApiService from '../../Services/article-api-service';
 
-export default class PostArticleForm extends Component {
+export default class EditArticleForm extends Component {
     static defaultProps = {
-        onSubmitSuccess: () => {}
+        onSubmitForm: () => {},
+        match: { params: {} }
     }
-
+    
     static contextType = ArticleContext;
 
     constructor(props) {
@@ -21,50 +22,48 @@ export default class PostArticleForm extends Component {
     handleSubmitPost = ev => {
         ev.preventDefault();
         this.setState({ error: null });
+        const { article } = this.props;
         const { user } = this.context;        
         const { title, description, body } = ev.target;
-        const newArticle = {
+        const articleToUpdate = {
+            id: article.id,
             title: title.value,
             description: description.value,
             body: body.value,
             author: user.name,
             username: user.username,
-            image_url: "",
             profile_image: user.profile_image
-        }       
+        }
 
         const fileSelected = this.fileInput.current.files[0];
         let data = new FormData();
         data.append('image', fileSelected);
 
-        ArticleApiService.postArticle(newArticle)
+        ArticleApiService.updateArticle(articleToUpdate)
         .then(res => {
-            ArticleApiService.getArticle(res.id)
-            .then(article => {
-                this.context.clearArticle();
-                this.context.setArticle(article);
-                if (fileSelected) {
-                    ArticleApiService.uploadFile(data)
-                    .then(res => {
-                        (!res.ok)
-                            ? res.json().then(e => Promise.reject(e))
-                            : res.json()
-                        .then(data => {
-                            article.image_url = data.image_url;
-                            ArticleApiService.updateArticle(article)
-                            .then(this.context.setArticle(article))
-                            .catch(this.context.setError);
-                        })
+            this.context.setArticle(articleToUpdate);
+            if (fileSelected) {
+                ArticleApiService.uploadFile(data)
+                .then(res => {
+                    (!res.ok)
+                        ? res.json().then(e => Promise.reject(e))
+                        : res.json()
+                    .then(data => {
+                        article.image_url = data.image_url;
+                        ArticleApiService.updateArticle(article)
+                        .then(this.context.setArticle(article))
+                        .catch(this.context.setError);
                     })
-                }
-            })
+                })
+            }
         })
-        .then(this.props.onSubmitSuccess())
+        .then(this.props.onSubmitForm())
         .catch(this.context.setError);
     }
 
     render() {
         const { error } = this.state;
+        const { article } = this.props;
         return (
             <form
                 className="post-form"
@@ -88,7 +87,7 @@ export default class PostArticleForm extends Component {
                         name='title'
                         aria-label='title'
                         className='title'
-                        defaultValue='Title'
+                        defaultValue={article.title}
                         required
                     />
                 </div>
@@ -98,7 +97,7 @@ export default class PostArticleForm extends Component {
                         name='description'
                         aria-label='description'
                         className='description'
-                        defaultValue='tell a little description...'
+                        defaultValue={article.description}
                         required
                     />
                 </div>
@@ -108,7 +107,7 @@ export default class PostArticleForm extends Component {
                         name='body'
                         aria-label='body'
                         className='body'
-                        defaultValue='tell your story...'
+                        defaultValue={article.body}
                         required
                     />
                 </div>

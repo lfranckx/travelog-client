@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './AuthorsListItem.css';
 import { Link } from 'react-router-dom';
 import trash from '../../icons/trash.png';
+import pencil from '../../icons/pencil.png';
 import ArticleApiService from '../../Services/article-api-service';
 import ArticleContext from '../../Contexts/ArticleContext';
 
@@ -30,19 +31,30 @@ export default class AuthorsListItem extends Component {
                     <img src={article.image_url} alt="thumbnail" className="thumbnail"/>
                 </Link>
                 <Link to={`/article/${article.id}`} className="list-item-container">
-                    <h2>{article.title}</h2>
-                    <h3>{article.description}</h3>
+                    <h3>{article.title}</h3>
+                    <h4>{article.description}</h4>
                     <div>{date}</div>
                     <div>Read more</div>
                 </Link>
-                <button>
-                    <img 
-                        src={trash} 
-                        alt="trash" 
-                        className="trash"
-                        onClick={this.handleDelete}
-                    />
-                </button>
+                <div>
+                    <Link to={`/edit/${article.id}`}>
+                        <button>
+                            <img 
+                                src={pencil} 
+                                alt="pencil" 
+                                className="pencil"
+                            />
+                        </button>
+                    </Link>
+                    <button>
+                        <img 
+                            src={trash} 
+                            alt="trash" 
+                            className="trash"
+                            onClick={this.handleDelete}
+                        />
+                    </button>
+                </div>
             </article>
         )
     }

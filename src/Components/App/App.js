@@ -25,6 +25,7 @@ import ArticleContext from '../../Contexts/ArticleContext';
 
 import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicRoute';
+import EditArticlePage from '../../Routes/EditArticlePage/EditArticlePage';
 
 class App extends Component {
 
@@ -112,6 +113,10 @@ class App extends Component {
             <PrivateRoute 
               path="/editprofile/:username"
               component={EditProfilePage}
+            />
+            <PrivateRoute 
+              path="/edit/:articleId"
+              component={EditArticlePage}
             />
             {/*<Route 
               path="/results"

@@ -36,11 +36,7 @@ export default class EditProfileForm extends Component {
 
         AuthorApiService.updateAuthor(author)
         .then(res => {
-            console.log('setting author', author);
-            
             this.context.setUser(author);
-            console.log('fileSelected', fileSelected);
-            
             if (fileSelected) {
                 AuthorApiService.uploadFile(data)
                 .then(res => {
@@ -48,12 +44,10 @@ export default class EditProfileForm extends Component {
                         ? res.json().then(e => Promise.reject(e))
                         : res.json()
                     .then(data => {
-                        console.log('data', data)
                         user.profile_image = data.image_url;
-                        console.log('user', user);
-                        
                         AuthorApiService.updateAuthor(user)
-                            .then(this.context.setUser(user))
+                        .then(this.context.setUser(user))
+                        .catch(this.context.setError);
                     })
                 })
             }

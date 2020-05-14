@@ -50,10 +50,12 @@ export class ArticleProvider extends Component {
     };
 
     setArticle = article => {
+        console.log('setting article', article);
         this.setState({ article });
     };
 
     clearArticle = () => {
+        console.log('clearing article');
         this.setArticle(nullArticle);
     };
 

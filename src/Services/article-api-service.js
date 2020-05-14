@@ -50,6 +50,8 @@ const ArticleApiService = {
         return (Response, json);
     },
     updateArticle(article) {
+        console.log('updating article', article);
+        
         return fetch(`${config.API_ENDPOINT}/articles/${article.id}`, {
             method: 'PATCH',
             headers: {
@@ -60,8 +62,6 @@ const ArticleApiService = {
         });
     },
     deleteArticle(id) {
-        console.log('deleting article with id', id);
-        
         return fetch(`${config.API_ENDPOINT}/articles/${id}`, {
             method: 'DELETE',
             headers: {
