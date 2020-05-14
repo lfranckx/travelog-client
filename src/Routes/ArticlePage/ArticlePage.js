@@ -3,6 +3,7 @@ import './ArticlePage.css';
 import ArticleContext from '../../Contexts/ArticleContext'; 
 import ArticleApiService from '../../Services/article-api-service';
 import { Link } from 'react-router-dom';
+import CommentsForm from '../../Components/CommentsForm/CommentsForm';
 
 export default class ArticlePage extends Component {
     static defaultProps = {
@@ -12,6 +13,8 @@ export default class ArticlePage extends Component {
     static contextType = ArticleContext;
 
     componentDidMount() {
+        console.log('article page mounted');
+        
         const { articleId } = this.props.match.params;
         this.context.clearError();
         ArticleApiService.getArticle(articleId)
@@ -25,7 +28,6 @@ export default class ArticlePage extends Component {
 
     renderArticle() {
         const { article, user } = this.context;
-        console.log('user', user);
         // Link to user's profile page if their article
         if (user.username === article.username) {
             return (<section className="article-page">
@@ -39,10 +41,10 @@ export default class ArticlePage extends Component {
                             alt={article.title}
                             className="article-image"
                         />
-                        
                         <p>
                             {article.body}
                         </p>
+                        <CommentsForm article={article}/>
                     </section>)
         }
         return (
@@ -57,10 +59,10 @@ export default class ArticlePage extends Component {
                     alt={article.title}
                     className="article-image"
                 />
-                
                 <p>
                     {article.body}
                 </p>
+                <CommentsForm article={article}/>
             </section>
         );
     }

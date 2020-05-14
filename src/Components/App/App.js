@@ -13,7 +13,6 @@ import PostArticlePage from '../../Routes/PostArticlePage/PostArticlePage';
 import ProfilePage from '../../Routes/ProfilePage/ProfilePage';
 // import ResultsPage from '../../Routes/ResultsPage/ResultsPage';
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage';
-import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage';
 import EditProfilePage from '../../Routes/EditProfilePage/EditProfilePage';
 
 import TokenService from '../../Services/token-service';
@@ -108,10 +107,6 @@ class App extends Component {
               component={PostArticlePage}
             />
             <PrivateRoute 
-              path="/upload/:articleId"
-              component={UploadImagePage}
-            />
-            <PrivateRoute 
               path="/editprofile/:username"
               component={EditProfilePage}
             />
@@ -119,11 +114,6 @@ class App extends Component {
               path="/edit/:articleId"
               component={EditArticlePage}
             />
-            {/*<Route 
-              path="/results"
-              component={ResultsPage}
-            /> */}
-            
             {/* <PrivateRoute 
               path="/bookmarks"
               component={BookmarksPage}

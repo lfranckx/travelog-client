@@ -99,8 +99,8 @@ export class ArticleProvider extends Component {
         this.setUsersArticles(nullUsersArticles);
     };
 
-    updateSearch = search => {
-        this.setState({ search: search.substr(0, 20) });
+    updateSearch = ev => {
+        this.setState({ search: ev.target.value.substr(0, 20) });
     };
 
     render() {

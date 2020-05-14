@@ -53,7 +53,7 @@ export default class AuthorsListItem extends Component {
                     <div>{date}</div>
                     <div>Read more</div>
                 </Link>
-                <div id="article-buttons">
+                <div className="article-buttons">
                     <Link to={`/edit/${article.id}`}>
                         <button>
                             <img 
