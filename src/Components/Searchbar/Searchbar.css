@@ -1,4 +1,6 @@
-.searchbar input, .searchbar button {
-    font-size: 1rem;
+.searchbar input {
+    font-size: 1.2rem;
     margin: 0 1px;
+    padding: 5px;
+    border-radius: 1px;
 }

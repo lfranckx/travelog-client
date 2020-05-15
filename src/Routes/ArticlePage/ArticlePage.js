@@ -3,7 +3,7 @@ import './ArticlePage.css';
 import ArticleContext from '../../Contexts/ArticleContext'; 
 import ArticleApiService from '../../Services/article-api-service';
 import { Link } from 'react-router-dom';
-import CommentsForm from '../../Components/CommentsForm/CommentsForm';
+import Comments from '../../Components/Comments/Comments';
 
 export default class ArticlePage extends Component {
     static defaultProps = {
@@ -12,13 +12,14 @@ export default class ArticlePage extends Component {
 
     static contextType = ArticleContext;
 
-    componentDidMount() {
-        console.log('article page mounted');
-        
+    componentDidMount() {        
         const { articleId } = this.props.match.params;
         this.context.clearError();
         ArticleApiService.getArticle(articleId)
             .then(this.context.setArticle)
+            .catch(this.context.setError);
+        ArticleApiService.getArticleComments(articleId)
+            .then(this.context.setComments)
             .catch(this.context.setError);
     }
 
@@ -27,10 +28,12 @@ export default class ArticlePage extends Component {
     }
 
     renderArticle() {
-        const { article, user } = this.context;
-        // Link to user's profile page if their article
+        const { article, user, comments } = this.context;
+        // Link to user's profile page if on their article page
         if (user.username === article.username) {
-            return (<section className="article-page">
+            return (
+                <>
+                    <section className="article-page">
                         <h2>{article.title}</h2>
                         <Link to={`/profile/${user.username}`} className="author-container">
                             <img src={user.profile_image} alt="author-profile" className="profile-image"/> 
@@ -44,26 +47,30 @@ export default class ArticlePage extends Component {
                         <p>
                             {article.body}
                         </p>
-                        <CommentsForm article={article}/>
-                    </section>)
+                    </section>
+                    <Comments comments={comments}
+                        article={article} />
+                </>        
+            );
         }
-        return (
-            <section className="article-page">
-                <h2>{article.title}</h2>
-                <Link to={`/author/${article.username}`} className="author-container">
-                    <img src={article.profile_image} alt="author-profile" className="profile-image"/> 
-                    <div>{article.author}</div>
-                </Link>
-                <img 
-                    src={article.image_url} 
-                    alt={article.title}
-                    className="article-image"
-                />
-                <p>
-                    {article.body}
-                </p>
-                <CommentsForm article={article}/>
-            </section>
+        return ( // if it is not the current user's article
+            <>
+                <section className="article-page">
+                    <h2>{article.title}</h2>
+                    <Link to={`/author/${article.username}`} className="author-container">
+                        <img src={article.profile_image} alt="author-profile" className="profile-image"/> 
+                        <div>{article.author}</div>
+                    </Link>
+                    <img 
+                        src={article.image_url} 
+                        alt={article.title}
+                        className="article-image"
+                    />
+                    <p className="body">{article.body}</p>
+                </section>
+                <Comments comments={comments}
+                    article={article} />
+            </>
         );
     }
 
@@ -79,10 +86,6 @@ export default class ArticlePage extends Component {
         } else {
             content = this.renderArticle();
         }
-        return (
-            <>
-                {content}
-            </>
-        );
+        return <>{content}</>
     }
 }

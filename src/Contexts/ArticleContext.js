@@ -10,6 +10,7 @@ const ArticleContext = React.createContext({
     article: nullArticle,
     author: nullAuthor,
     user: nullUser,
+    comments: [],
     articlesList: [],
     authorsList: [],
     usersArticles: nullUsersArticles,
@@ -21,6 +22,8 @@ const ArticleContext = React.createContext({
     clearAuthor: () => {},
     setUser: () => {},
     clearUser: () => {},
+    setComments: () => {},
+    addComment: () => {},
     setArticlesList: () => {},
     setAuthorsList: () => {},
     setUsersArticles: () => {},
@@ -36,6 +39,7 @@ export class ArticleProvider extends Component {
         article: nullArticle,
         author: nullAuthor,
         user: nullUser,
+        comments: [],
         articlesList: [],
         authorsList: [],
         usersArticles: []
@@ -47,7 +51,6 @@ export class ArticleProvider extends Component {
     };
 
     clearError = () => {
-        console.log('clearing error');
         this.setState({ error: null });
     };
 
@@ -82,6 +85,20 @@ export class ArticleProvider extends Component {
         this.setState(nullUser);
     };
 
+    setComments = comments => {
+        console.log('setting comments', comments);
+        this.setState({ comments: comments });
+    };
+
+    addComment = comment => {
+        console.log('adding comment', comment);
+        
+        this.setComments([
+            ...this.state.comments,
+            comment
+        ]);
+    };
+
     setArticlesList = articlesList => {
         this.setState({ articlesList });
     };
@@ -110,6 +127,7 @@ export class ArticleProvider extends Component {
             article: this.state.article,
             author: this.state.author,
             user: this.state.user,
+            comments: this.state.comments,
             articlesList: this.state.articlesList,
             authorsList: this.state.authorsList,
             usersArticles: this.state.usersArticles,
@@ -121,6 +139,8 @@ export class ArticleProvider extends Component {
             clearAuthor: this.clearAuthor,
             setUser: this.setUser,
             clearUser: this.clearUser,
+            setComments: this.setComments,
+            addComment: this.addComment,
             setArticlesList: this.setArticlesList,
             setAuthorsList: this.setAuthorsList,
             setUsersArticles: this.setUsersArticles,

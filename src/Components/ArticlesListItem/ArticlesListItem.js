@@ -9,6 +9,7 @@ export default class ArticlesListItem extends Component {
     render() {
         const { article, authors } = this.props;
         const date = article.date.slice(0, 16);
+        console.log(article.date);
 
         let authorObject;
         authors.map(author => {

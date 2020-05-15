@@ -1,0 +1,8 @@
+ul > li {
+    list-style-type: none;
+}
+
+.comment {
+    width: 100%;
+    font-size: 1rem;
+}

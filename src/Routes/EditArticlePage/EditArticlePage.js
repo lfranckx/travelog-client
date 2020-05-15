@@ -36,7 +36,7 @@ export default class EditArticlePage extends Component {
     render() {
         const { article } = this.context;
         return (
-            <section>
+            <section className="edit-article-section">
                 <EditArticleForm 
                     onSubmitForm={this.handleSubmitForm}
                     article={article}    

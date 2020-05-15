@@ -43,7 +43,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('App mounted');
     localStorage.clear();
     IdleService.setIdleCallback(this.logoutFromIdle);
     if (TokenService.hasAuthToken()) {

@@ -15,19 +15,61 @@ nav {
 }
 
 h1 {
-    font-size: 2rem;
+    /* font-family: ''; */
+    font-size: 2.4rem;
     margin-right: 5px;
 }
 
 .header-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
 .header-container > * {
-    margin: 0 2px;
+    margin: 0 10px;
 }
 
 .header-container > a {
     color: #27374c;
+}
+
+.title-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Nav Icons  */
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.world {
+    height: 58px;
+    width: 58px;
+}
+
+.notepad {
+    height: 36px;
+    width: 36px;
+}
+
+.profile {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.bookmark {
+    height: 48px;
+    width: 52px;
 }

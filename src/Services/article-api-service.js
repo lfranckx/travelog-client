@@ -39,9 +39,20 @@ const ArticleApiService = {
             : res.json()
         );
     },
+    getArticleComments(articleId) {
+        console.log('Getting Article Comments');
+        return fetch(`${config.API_ENDPOINT}/articles/${articleId}/comments`, {
+            headers: {
+              'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+          })
+            .then(res =>
+              (!res.ok) ? res.json().then(e => Promise.reject(e))
+                        : res.json()
+            );
+    },
     async postArticle(article) {
         console.log('POSTING ARTICLE', article);
-        
         const Response = await fetch(`${config.API_ENDPOINT}/articles`, {
             method: 'POST',
             headers: {
@@ -52,6 +63,20 @@ const ArticleApiService = {
         });
         const json = await Response.json();
         return (Response, json);
+    },
+    postComment(commentData) {
+        return fetch(`${config.API_ENDPOINT}/comments`, {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+              'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(commentData)
+        })
+        .then(res =>
+            (!res.ok)   ? res.json().then(e => Promise.reject(e))
+                        : res.json()
+        );
     },
     updateArticle(article) {
         console.log('updating article', article);
