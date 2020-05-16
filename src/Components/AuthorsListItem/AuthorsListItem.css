@@ -1,3 +1,7 @@
+.authors-articles {
+    margin-top: 10px;
+}
+
 .authors-articles > article {
     display: flex;
     flex-direction: row;
@@ -7,14 +11,22 @@
     border-bottom: 1px solid grey;
 }
 
+/* Thumbnail */
 .authors-articles .thumbnail {
-    height: 100px;
-    width: 166px;
+    height: 25%;
+    width: 25%;
+    max-height: 125px;
+    max-width: 125px;
 }
 
-.list-item-container {
+.center {
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
+
+/* Edit and delete buttons */
 
 .article-buttons {
     display: flex;

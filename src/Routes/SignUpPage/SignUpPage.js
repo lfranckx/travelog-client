@@ -12,7 +12,7 @@ export default class SignUpPage extends Component {
 
     handleSubmitSuccess = () => {
         const { location, history } = this.props;
-        const destination = (location.state || {}).from || '/';
+        const destination = (location.state || {}).from || '/create_profile';
         history.push(destination);
     }
 

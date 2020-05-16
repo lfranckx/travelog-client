@@ -76,8 +76,6 @@ export default class EditArticleForm extends Component {
             >
                 <div>{error && <p className="error">{error}</p>}</div>
                 <div className="file-container">
-                    <label for="edit-form-file" >
-                    </label>
                     <input
                         ref={this.fileInput}
                         type="file"

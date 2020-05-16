@@ -21,12 +21,15 @@
 
 .edit-profile-form input {
     width: 100%;
-    font-size: 1.5rem;
     padding: 5px;
+}
+
+.name {
+    font-size: 20px;
 }
 
 .edit-profile-form textarea {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 20px;
     padding: 5px;
 }

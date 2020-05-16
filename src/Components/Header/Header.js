@@ -8,7 +8,6 @@ import SearchBar from '../Searchbar/Searchbar';
 import Logo from '../../icons/bootprint.png';
 import world from '../../icons/world.png';
 import notepad from '../../icons/notepad.png';
-import bookmark from '../../icons/bookmark3.png';
 import profile from '../../icons/profile.png';
 
 export default class Header extends Component {
@@ -28,22 +27,53 @@ export default class Header extends Component {
         return (
             <>
                 <Link to='/' className="nav-link">
-                    <img src={world} alt="world" className="world" />
+                    <img src={world} alt="world" className="world icon" />
+                    <div>Home</div>
                 </Link>
                 <Link to="/post" className="nav-link">
-                    <img src={notepad} alt="notepad" className="notepad" />
+                    <img src={notepad} alt="notepad" className="notepad icon" />
+                    <div className="post-text">Post</div>
                 </Link>
-                <Link to={`/bookmarks`}>
-                    <img src={bookmark} alt="bookmark" className="bookmark" />
-                </Link>
-                <Link to={`/profile/${user.username}`}>
-                    <img src={user.profile_image} alt="profile" className="profile" />
+                <Link to={`/profile/${user.username}`} className="nav-link">
+                    <img src={user.profile_image} alt="profile" className="profile icon" />
                 </Link>
                 <Link to="/" 
                     className="logout"
                     onClick={this.handleLogOut}>
                     Logout
                 </Link>
+                <div className="menu-wrap">
+                    <input type="checkbox" className="toggler"/>
+                    <div className="hamburger"><div></div></div>
+                    <div className="menu">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <Link to='/'>
+                                            Home
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/post">
+                                            Post Article
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to={`/profile/${user.username}`}>
+                                            Profile
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/" onClick={this.handleLogOut}>
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </>
         );
     }

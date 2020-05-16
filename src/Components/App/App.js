@@ -6,14 +6,14 @@ import './App.css';
 import Header from '../Header/Header';
 import ArticlePage from '../../Routes/ArticlePage/ArticlePage';
 import AuthorPage from '../../Routes/AuthorPage/AuthorPage';
-// import BookmarksPage from '../../Routes/BookmarksPage/BookmarksPage';
 import LoginPage from '../../Routes/LoginPage/LoginPage';
 import MainPage from '../../Routes/MainPage/MainPage';
 import PostArticlePage from '../../Routes/PostArticlePage/PostArticlePage';
 import ProfilePage from '../../Routes/ProfilePage/ProfilePage';
-// import ResultsPage from '../../Routes/ResultsPage/ResultsPage';
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage';
 import EditProfilePage from '../../Routes/EditProfilePage/EditProfilePage';
+import EditArticlePage from '../../Routes/EditArticlePage/EditArticlePage';
+import CreateProfilePage from '../../Routes/CreateProfilePage/CreateProfilePage';
 
 import TokenService from '../../Services/token-service';
 import AuthApiService from '../../Services/auth-api-service';
@@ -24,7 +24,6 @@ import ArticleContext from '../../Contexts/ArticleContext';
 
 import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicRoute';
-import EditArticlePage from '../../Routes/EditArticlePage/EditArticlePage';
 
 class App extends Component {
 
@@ -106,12 +105,16 @@ class App extends Component {
               component={PostArticlePage}
             />
             <PrivateRoute 
-              path="/editprofile/:username"
-              component={EditProfilePage}
+              path="/create_profile"
+              component={CreateProfilePage}
             />
             <PrivateRoute 
               path="/edit/:articleId"
               component={EditArticlePage}
+            />
+            <PrivateRoute 
+              path="/editprofile/:username"
+              component={EditProfilePage}
             />
             {/* <PrivateRoute 
               path="/bookmarks"

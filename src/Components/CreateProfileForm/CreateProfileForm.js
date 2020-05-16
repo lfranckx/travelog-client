@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import ArticleContext from '../../Contexts/ArticleContext';
 import AuthorApiService from '../../Services/author-api-service';
 
-export default class EditProfileForm extends Component {
-    static defaultProps = {
-        onSubmitForm: () => {},
-        match: { params: {} }
-    }
+export default class CreateProfileForm extends Component {
 
     static contextType = ArticleContext;
 
@@ -19,7 +15,9 @@ export default class EditProfileForm extends Component {
         };
     }
 
-    handleUpdateProfile = ev => {
+    handleCreateProfile = ev => {
+        console.log('running handleCreateProile');
+        
         ev.preventDefault();
         this.setState({ error: null });
         const { name, about } = ev.target;
@@ -29,16 +27,21 @@ export default class EditProfileForm extends Component {
             name: name.value,
             about: about.value
         }
+        console.log('author', author);
+        
 
         const fileSelected = this.fileInput.current.files[0];
         let data = new FormData();
         data.append('image', fileSelected);
 
         AuthorApiService.updateAuthor(author)
-        .then(user => {
+        .then(res => {
+            console.log('updateAuthor res', res);
             if (fileSelected) {
                 AuthorApiService.uploadFile(data)
                 .then(res => {
+                    console.log('uploadFile res', res);
+                    
                     (!res.ok)
                         ? res.json().then(e => Promise.reject(e))
                         : res.json()
@@ -58,9 +61,9 @@ export default class EditProfileForm extends Component {
 
     render() {
         const { error } = this.state;
-        const { user } = this.context;        
+        const { user } = this.context;
         return (
-            <form className="edit-profile-form" onSubmit={this.handleUpdateProfile}>
+            <form className="edit-profile-form" onSubmit={this.handleCreateProfile}>
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                 <div>
                     <label>Select a profile image</label>
@@ -83,8 +86,8 @@ export default class EditProfileForm extends Component {
                         type='text'
                         name='name'
                         aria-label='name'
-                        defaultValue={user.name}
                         required
+                        defaultValue={user.name}
                     />
                 </div>
                 <div>
@@ -95,13 +98,11 @@ export default class EditProfileForm extends Component {
                         rows='18'
                         name='about'
                         aria-label='about'
-                        defaultValue={user.about}
                         required
                     />
                 </div>
                 <button type='submit'>Submit</button>
             </form>
-        )
+        );
     }
-
 }

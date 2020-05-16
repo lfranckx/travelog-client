@@ -19,19 +19,19 @@
     font-size: 18px;
 }
 
-h3, h4 {
-    margin: 5px 0;
-}
-
 .author-profile {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
 }
 
 .thumbnail {
-    width: 400px;
-    height: 225px;
+    width: 25%;
+    height: 25%;
+    min-height: 100px;
+    max-height: 420px;
+    min-width: 100px;
+    max-width: 500px;
     background-size: cover;
     background-position: 50% 50%;
 }
