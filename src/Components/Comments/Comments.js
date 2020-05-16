@@ -35,6 +35,7 @@ export default class Comments extends Component {
         if (TokenService.hasAuthToken()) {
             return (
                 <section className="comments-section">
+                    <ArticleComments comments={comments} /> 
                     <form className="comment-form"
                         onSubmit={this.handleSubmit}>
                         <div>
@@ -50,7 +51,6 @@ export default class Comments extends Component {
                         <button className="post"
                             type="submit">Post</button>
                     </form>
-                    <ArticleComments comments={comments} /> 
                 </section>
             )
         }
@@ -67,7 +67,7 @@ function ArticleComments({ comments = []}) {
                         <img className="comment-profile"
                             src={comment.profile_image} 
                             alt="profile" />
-                        <p className="comment-user">{comment.username}</p>
+                        <p className="comment-user">{comment.author_name}</p>
                     </Link>
                     <p className="comment-text">{comment.comment}</p>
                 </li>

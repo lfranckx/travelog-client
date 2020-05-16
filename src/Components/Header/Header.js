@@ -9,6 +9,7 @@ import Logo from '../../icons/bootprint.png';
 import world from '../../icons/world.png';
 import notepad from '../../icons/notepad.png';
 import profile from '../../icons/profile.png';
+import Hamburger from '../Hamburger/Hamburger';
 
 export default class Header extends Component {
     static contextType = ArticleContext;
@@ -42,38 +43,7 @@ export default class Header extends Component {
                     onClick={this.handleLogOut}>
                     Logout
                 </Link>
-                <div className="menu-wrap">
-                    <input type="checkbox" className="toggler"/>
-                    <div className="hamburger"><div></div></div>
-                    <div className="menu">
-                        <div>
-                            <div>
-                                <ul>
-                                    <li>
-                                        <Link to='/'>
-                                            Home
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/post">
-                                            Post Article
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to={`/profile/${user.username}`}>
-                                            Profile
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/" onClick={this.handleLogOut}>
-                                            Logout
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Hamburger user={user} />
             </>
         );
     }

@@ -16,8 +16,6 @@ export default class CreateProfileForm extends Component {
     }
 
     handleCreateProfile = ev => {
-        console.log('running handleCreateProile');
-        
         ev.preventDefault();
         this.setState({ error: null });
         const { name, about } = ev.target;
@@ -27,21 +25,13 @@ export default class CreateProfileForm extends Component {
             name: name.value,
             about: about.value
         }
-        console.log('author', author);
-        
-
         const fileSelected = this.fileInput.current.files[0];
         let data = new FormData();
         data.append('image', fileSelected);
 
-        AuthorApiService.updateAuthor(author)
-        .then(res => {
-            console.log('updateAuthor res', res);
-            if (fileSelected) {
-                AuthorApiService.uploadFile(data)
+        if (fileSelected) {
+            AuthorApiService.uploadFile(data)
                 .then(res => {
-                    console.log('uploadFile res', res);
-                    
                     (!res.ok)
                         ? res.json().then(e => Promise.reject(e))
                         : res.json()
@@ -49,14 +39,16 @@ export default class CreateProfileForm extends Component {
                         user.profile_image = data.image_url;
                         AuthorApiService.updateAuthor(user)
                         .then(this.context.setUser(user))
+                        .then(this.props.onSubmitForm)
                         .catch(this.context.setError);
                     })
                 })
-            }
-        })
-        .then(this.context.setUser)
-        .then(this.props.onSubmitForm())
-        .catch(this.context.setError);
+        } else if (!fileSelected) {
+            AuthorApiService.updateAuthor(author)
+                .then(this.context.setUser(author))
+                .then(this.props.onSubmitForm)
+                .catch(this.context.setError);
+        }
     }
 
     render() {

@@ -14,6 +14,7 @@ const ArticleContext = React.createContext({
     articlesList: [],
     authorsList: [],
     usersArticles: nullUsersArticles,
+    menuOpen: false,
     setError: () => {},
     clearError: () => {},
     setArticle: () => {},
@@ -28,7 +29,9 @@ const ArticleContext = React.createContext({
     setAuthorsList: () => {},
     setUsersArticles: () => {},
     clearUsersArticles: () => {},
-    updateSearch: () => {}
+    updateSearch: () => {},
+    toggleMenuOpen: () => {},
+    toggleMenuClose: () => {}
 });
 export default ArticleContext;
 
@@ -42,7 +45,8 @@ export class ArticleProvider extends Component {
         comments: [],
         articlesList: [],
         authorsList: [],
-        usersArticles: []
+        usersArticles: [],
+        menuOpen: false
     };
 
     setError = error => {
@@ -120,6 +124,14 @@ export class ArticleProvider extends Component {
         this.setState({ search: ev.target.value.substr(0, 20) });
     };
 
+    toggleMenuOpen = () => {
+        this.setState({ menuOpen: true});
+    };
+
+    toggleMenuClose = () => {
+        this.setState({ menuOpen: false});
+    };
+
     render() {
         const value = {
             error: this.state.error,
@@ -131,6 +143,7 @@ export class ArticleProvider extends Component {
             articlesList: this.state.articlesList,
             authorsList: this.state.authorsList,
             usersArticles: this.state.usersArticles,
+            menuOpen: this.state.menuOpen,
             setError: this.setError,
             clearError: this.clearError,
             setArticle: this.setArticle,
@@ -145,7 +158,9 @@ export class ArticleProvider extends Component {
             setAuthorsList: this.setAuthorsList,
             setUsersArticles: this.setUsersArticles,
             clearUsersArticles: this.clearUsersArticles,
-            updateSearch: this.updateSearch
+            updateSearch: this.updateSearch,
+            toggleMenuOpen: this.toggleMenuOpen,
+            toggleMenuClose: this.toggleMenuClose
         };
         
         return (

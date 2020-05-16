@@ -10,8 +10,6 @@ class MainPage extends Component {
     static contextType = ArticleContext;
 
     componentDidMount() {
-        console.log('component did mount');
-        
         this.context.clearError();
         ArticleApiService.getArticles()
             .then(this.context.setArticlesList)

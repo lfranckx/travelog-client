@@ -22,7 +22,6 @@ export default class SignUpForm extends Component {
             first_name: first_name.value,
             last_name: last_name.value
         }
-        console.log(newUser);
         AuthApiService.postUser(newUser)
         .then(res => {
             AuthApiService.postAuthor({
@@ -32,6 +31,7 @@ export default class SignUpForm extends Component {
                 profile_image: ""
             })
             .then(res => {
+                this.context.setUser(res);
                 AuthApiService.postLogin({
                     username: username.value,
                     password: password.value,

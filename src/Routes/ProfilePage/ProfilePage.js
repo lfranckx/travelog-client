@@ -46,7 +46,7 @@ export default class ProfilePage extends Component {
                             alt="author-profile" />
                         <h2>{user.name}</h2>
                     </div>
-                    <p>{user.about}</p>
+                    <p className="profile-about">{user.about}</p>
                     <Link to={`/editprofile/${username}`}>Edit Profile</Link>
                 </section>
                 <section className="authors-articles">

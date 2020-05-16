@@ -14,6 +14,10 @@ export default class EditProfilePage extends Component {
     }
 
     static contextType = ArticleContext;
+    
+    componentDidMount() {
+        this.context.clearError();
+    }
 
     handleSubmitForm = () => {
         const { user } = this.context;

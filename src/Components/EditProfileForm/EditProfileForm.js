@@ -34,10 +34,8 @@ export default class EditProfileForm extends Component {
         let data = new FormData();
         data.append('image', fileSelected);
 
-        AuthorApiService.updateAuthor(author)
-        .then(user => {
-            if (fileSelected) {
-                AuthorApiService.uploadFile(data)
+        if (fileSelected) {
+            AuthorApiService.uploadFile(data)
                 .then(res => {
                     (!res.ok)
                         ? res.json().then(e => Promise.reject(e))
@@ -45,15 +43,17 @@ export default class EditProfileForm extends Component {
                     .then(data => {
                         user.profile_image = data.image_url;
                         AuthorApiService.updateAuthor(user)
-                        .then(this.context.setUser(user))
-                        .catch(this.context.setError);
+                            .then(this.context.setUser(user))
+                            .then(this.props.onSubmitForm)
+                            .catch(this.context.setError);
                     })
                 })
-            }
-        })
-        .then(this.context.setUser)
-        .then(this.props.onSubmitForm())
-        .catch(this.context.setError);
+        } else if (!fileSelected) {
+            AuthorApiService.updateAuthor(author)
+                .then(this.context.setUser(author))
+                .then(this.props.onSubmitForm)
+                .catch(this.context.setError);
+        }
     }
 
     render() {

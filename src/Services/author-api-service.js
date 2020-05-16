@@ -55,7 +55,6 @@ const AuthorApiService = {
     },
     updateAuthor(author) {
         console.log('sending author', author);
-        
         return fetch(`${config.API_ENDPOINT}/authors/${author.username}`, {
             method: 'PATCH',
             headers: {

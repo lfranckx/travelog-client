@@ -14,6 +14,10 @@ export default class CreateProfilePage extends Component {
 
     static contextType = ArticleContext;
 
+    componentDidMount() {
+        this.context.clearError();
+    }
+
     handleSubmitForm = () => {
         const { location, history } = this.props;
         const destination = (location.state || {}).from || `/`;
