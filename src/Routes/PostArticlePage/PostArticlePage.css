@@ -7,28 +7,28 @@
 }
 
 .post-form > div {
-    margin: 5px
+    margin: 5px;
+    text-align: left;
+}
+
+.post-form label {
+    font-size: 1.5rem;
+}
+.post-form input {
+    width: 100%;
+    padding: 10px;
 }
 
 .post-form .title {
     font-size: 3rem;
-    padding: 10px;
-    width: 100%;
 }
 
 
 .post-form .description {
     font-size: 2rem;
-    padding: 10px;
-    width: 100%;
 }  
 
 .post-form .body {
     font-size: 1.5rem;
-    padding: 10px;
-    width: 100%;
-}
-
-.upload-box > * {
-    margin: 5px;
+    width: 100%
 }

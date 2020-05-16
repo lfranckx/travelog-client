@@ -23,7 +23,7 @@ export default class ArticlesListItem extends Component {
         
         return (
             <article>
-                <div className="main-page-container">
+                <div className="article-container">
                     <Link 
                         to={`/author/${authorObject.username}`}
                         className="author">
@@ -43,7 +43,7 @@ export default class ArticlesListItem extends Component {
                     <img className="thumbnail" src={article.image_url} alt="thumbnail" />
                     <h3>{article.title}</h3>
                     <h4>{article.description}</h4>
-                    <p>Read more...</p>
+                    <div>Read more...</div>
                 </Link>
             </article>
         );

@@ -11,12 +11,13 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 5px;
 }
 
 h1 {
-    /* font-family: ''; */
-    font-size: 2.4rem;
+    font-family: 'Kaushan Script';
+    font-size: 2.6rem;
+    color: #27374c;
     margin-right: 5px;
 }
 
@@ -27,11 +28,7 @@ h1 {
 }
 
 .header-container > * {
-    margin: 0 10px;
-}
-
-.header-container > a {
-    color: #27374c;
+    margin: 0 5px;
 }
 
 .title-logo {
@@ -43,7 +40,55 @@ h1 {
 .logo {
     height: 50px;
     width: 50px;
-    margin-right: 10px;
+    /* margin-right: 5px; */
+}
+
+/* Registration / Log out Links */
+
+.login {
+    color: #287FB8;
+    border: 2px solid #287FB8;
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.register {
+    color: white;
+    background-color: #287FB8;
+    border: 2px solid #287FB8;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.logout {
+    color: white;
+    background-color: #287FB8;
+    border: 2px solid #287FB8;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.login:active {
+    color: white;
+    background-color: #287FB8;
+}
+
+.register:active {
+    color: #287FB8;
+    background-color: white;
+    border: 2px solid #287FB8;
+}
+
+.logout:active {
+    color: #287FB8;
+    background-color: white;
+    border: 2px solid #287FB8;
 }
 
 /* Nav Icons  */

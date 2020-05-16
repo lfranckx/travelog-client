@@ -1,8 +1,55 @@
+.comment-form textarea {
+    padding: 10px;
+}
+
+.post {
+    padding: 6px 16px;
+}
+
+/* Comments List */
 ul > li {
     list-style-type: none;
 }
 
+.comments-list {
+    padding: 0;
+}
+
 .comment {
-    width: 100%;
+    display: flex;
+    align-items: top;
+    flex-direction: row;
+    width: 95%;
+    padding: 10px;
     font-size: 1rem;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.comment > a {
+    display: flex;
+    align-items: top;
+    margin-right: 10px;
+    position: relative;
+    top: 12px;
+}
+
+.comment-profile {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.comment-user {
+    margin: 0;
+    position: relative;
+    top: 5px;
+}
+
+.comment-text {
+    margin: 0;
+    background-color: #f3f3f3;
+    padding: 15px;
+    white-space: pre-line;
 }

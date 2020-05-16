@@ -19,11 +19,6 @@
     align-items: center;
 }
 
-.edit-profile-form > div > input[type=file] {
-    display: flex;
-    align-items: center;
-}
-
 .edit-profile-form input {
     width: 100%;
     font-size: 1.5rem;

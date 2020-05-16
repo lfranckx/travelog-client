@@ -33,11 +33,11 @@ export default class LoginForm extends Component {
         const { error } = this.state;
         return (
             <form 
-                className="auth-form"
+                className="login-form"
                 onSubmit={this.handleSubmitJwtAuth}
             >
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
-                <div className="input-box">
+                <div className="name-input">
                     <label>Username</label>
                     <input
                         type="text" 
@@ -47,7 +47,7 @@ export default class LoginForm extends Component {
                         required
                     />
                 </div>
-                <div className="input-box">
+                <div className="name-input">
                     <label>Password</label>
                     <input 
                         autoComplete="on"
@@ -57,7 +57,8 @@ export default class LoginForm extends Component {
                         className='password'
                         required />
                 </div>
-                <button type="submit">Login</button>
+                <button className="submit"
+                    type="submit">Login</button>
             </form>
         );
     }

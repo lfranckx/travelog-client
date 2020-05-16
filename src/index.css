@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Lato, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #27374c;
@@ -14,15 +12,67 @@ code {
 }
 
 h1, h2, h3, h4 {
-  margin: 0px
+  margin: 0px;
+  color: #27374c;
 }
 
 h2 {
   font-size: 2rem;
 }
 
+p {
+  font-size: 20px;
+}
+
 a {
   text-decoration: none;
+  color: #03a87c;
+}
+
+input {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+textarea {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+label {
+  text-align: left;
+  padding: 2px 5px;
+  margin-bottom: 3px;
+}
+
+button {
+  color: white;
+  background-color: #287FB8;
+  border: 2px solid #287FB8;
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.submit {
+  margin-top: 10px;
+  padding: 6px 20px;
+}
+
+.article-buttons button {
+  background-color: white;
+  border: none;
+}
+
+.article-buttons button img {
+  height: 15px;
+  width: 15px;
+}
+
+.date {
   color: #27374c;
 }
 

@@ -52,31 +52,55 @@ export default class SignUpForm extends Component {
         const { error } = this.state;
         return (
             <form
-                className="auth-form"
+                className="sign-up-form"
                 onSubmit={this.handleSubmit}
             >
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
-                <div className="input-box">
-                    <label>Email</label>
-                    <input
-                        type="text" 
-                        name='email' 
-                        aria-label='email'
-                        className='email' 
-                        required
-                    />
+                <div className="name-box">
+                    <div className="name-input">
+                        <label>First Name</label>
+                        <input
+                            type="text" 
+                            name='first_name' 
+                            aria-label='first_name'
+                            className='first_name' 
+                            required
+                        />
+                    </div>
+                    <div className="name-input">
+                        <label>Last Name</label>
+                        <input
+                            type="text" 
+                            name='last_name' 
+                            aria-label='last_name'
+                            className='last_name' 
+                            required
+                        />
+                    </div>
                 </div>
-                <div className="input-box">
-                    <label>Username</label>
-                    <input
-                        type="text" 
-                        name='username' 
-                        aria-label='username'
-                        className='username' 
-                        required
-                    />
+                <div className="name-box">
+                    <div className="name-input">
+                        <label>Email</label>
+                        <input
+                            type="text" 
+                            name='email' 
+                            aria-label='email'
+                            className='email' 
+                            required
+                        />
+                    </div>
+                    <div className="name-input">
+                        <label>Username</label>
+                        <input
+                            type="text" 
+                            name='username' 
+                            aria-label='username'
+                            className='username' 
+                            required
+                        />
+                    </div>
                 </div>
-                <div className="input-box">
+                <div className="password-box">
                     <label>Password</label>
                     <input
                         type="password" 
@@ -86,27 +110,8 @@ export default class SignUpForm extends Component {
                         required
                     />
                 </div>
-                <div className="input-box">
-                    <label>First Name</label>
-                    <input
-                        type="text" 
-                        name='first_name' 
-                        aria-label='first_name'
-                        className='first_name' 
-                        required
-                    />
-                </div>
-                <div className="input-box">
-                    <label>Last Name</label>
-                    <input
-                        type="text" 
-                        name='last_name' 
-                        aria-label='last_name'
-                        className='last_name' 
-                        required
-                    />
-                </div>
-                <button type="submit">Register</button>
+                <button className="submit"
+                    type="submit">Register</button>
             </form>
         );
     }

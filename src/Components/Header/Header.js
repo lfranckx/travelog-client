@@ -9,6 +9,7 @@ import Logo from '../../icons/bootprint.png';
 import world from '../../icons/world.png';
 import notepad from '../../icons/notepad.png';
 import bookmark from '../../icons/bookmark3.png';
+import profile from '../../icons/profile.png';
 
 export default class Header extends Component {
     static contextType = ArticleContext;
@@ -21,6 +22,9 @@ export default class Header extends Component {
 
     renderLogOutLink() {
         const { user } = this.context;
+        if (!user.profile_image) {
+            user.profile_image = profile;
+        }
         return (
             <>
                 <Link to='/' className="nav-link">
@@ -35,7 +39,9 @@ export default class Header extends Component {
                 <Link to={`/profile/${user.username}`}>
                     <img src={user.profile_image} alt="profile" className="profile" />
                 </Link>
-                <Link to="/" onClick={this.handleLogOut}>
+                <Link to="/" 
+                    className="logout"
+                    onClick={this.handleLogOut}>
                     Logout
                 </Link>
             </>
@@ -45,12 +51,13 @@ export default class Header extends Component {
     renderLoginLink() {
         return (
             <>
-                <Link to="/login">
-                    Login
+                <Link to="/login"
+                    className="login">
+                    Log In
                 </Link>
-                <Link 
-                    to="/register">
-                    Register
+                <Link to="/register"
+                    className="register">
+                    Join
                 </Link>
             </>
         );

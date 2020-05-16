@@ -20,7 +20,7 @@ export default class SignUpPage extends Component {
         return (
             <>
                 <section className="sign-up-section">
-                    <h2>Sign Up</h2>
+                    <h2>Register</h2>
                     <SignUpForm 
                         onSubmitSuccess={this.handleSubmitSuccess}
                     />

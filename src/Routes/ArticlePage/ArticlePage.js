@@ -37,29 +37,30 @@ export default class ArticlePage extends Component {
                         <h2>{article.title}</h2>
                         <Link to={`/profile/${user.username}`} className="author-container">
                             <img src={user.profile_image} alt="author-profile" className="profile-image"/> 
-                            <div>{article.author}</div>
+                            <h3>{article.author}</h3>
                         </Link>
                         <img 
                             src={article.image_url} 
                             alt={article.title}
                             className="article-image"
                         />
-                        <p>
+                        <p className="body">
                             {article.body}
                         </p>
                     </section>
-                    <Comments comments={comments}
-                        article={article} />
-                </>        
+                    <Comments article={article} 
+                        comments={comments} />
+                </>
             );
         }
-        return ( // if it is not the current user's article
+        // if it is not the current user's article
+        return ( 
             <>
                 <section className="article-page">
                     <h2>{article.title}</h2>
                     <Link to={`/author/${article.username}`} className="author-container">
                         <img src={article.profile_image} alt="author-profile" className="profile-image"/> 
-                        <div>{article.author}</div>
+                        <h3>{article.author}</h3>
                     </Link>
                     <img 
                         src={article.image_url} 
@@ -68,8 +69,8 @@ export default class ArticlePage extends Component {
                     />
                     <p className="body">{article.body}</p>
                 </section>
-                <Comments comments={comments}
-                    article={article} />
+                <Comments article={article} 
+                    comments={comments} />
             </>
         );
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ArticleContext from '../../Contexts/ArticleContext';
 import ArticleApiService from '../../Services/article-api-service';
-import addphoto from '../../icons/addphoto.png';
+// import addphoto from '../../icons/addphoto.png';
 
 export default class EditArticleForm extends Component {
     static defaultProps = {
@@ -71,20 +71,13 @@ export default class EditArticleForm extends Component {
         const { error } = this.state;
         const { article } = this.props;
         return (
-            <form
-                className="post-form"
+            <form className="post-form"
                 onSubmit={this.handleSubmitPost}
             >
                 <div>{error && <p className="error">{error}</p>}</div>
                 <div className="file-container">
-                    <label for="edit-form-file" 
-                        onChange={this.showSelectedFileName}>
-                        <img src={addphoto} 
-                            alt="addphoto" 
-                            className="addphoto" />
-                        &nbsp;Choose a Photo
+                    <label for="edit-form-file" >
                     </label>
-                    <span id="file-selected">None</span>
                     <input
                         ref={this.fileInput}
                         type="file"
@@ -125,7 +118,8 @@ export default class EditArticleForm extends Component {
                         required
                     />
                 </div>
-                <button type="submit">Publish</button>
+                <button
+                    type="submit">Publish</button>
             </form>
         )
     }

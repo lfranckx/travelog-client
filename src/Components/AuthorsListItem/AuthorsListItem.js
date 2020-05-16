@@ -36,7 +36,7 @@ export default class AuthorsListItem extends Component {
                 <Link to={`/article/${article.id}`} className="list-item-container">
                     <h3>{article.title}</h3>
                     <h4>{article.description}</h4>
-                    <div>{date}</div>
+                    <div className="date">{date}</div>
                     <div>Read more</div>
                 </Link>
             </article>
@@ -50,27 +50,23 @@ export default class AuthorsListItem extends Component {
                 <Link to={`/article/${article.id}`} className="list-item-container">
                     <h3>{article.title}</h3>
                     <h4>{article.description}</h4>
-                    <div>{date}</div>
+                    <div className="date">{date}</div>
                     <div>Read more</div>
                 </Link>
                 <div className="article-buttons">
                     <Link to={`/edit/${article.id}`}>
-                        <button>
-                            <img 
-                                src={pencil} 
-                                alt="pencil" 
-                                className="pencil"
-                            />
-                        </button>
-                    </Link>
-                    <button>
                         <img 
-                            src={trash} 
-                            alt="trash" 
-                            className="trash"
-                            onClick={this.handleDelete}
+                            src={pencil} 
+                            alt="pencil" 
+                            className="pencil edit-delete"
                         />
-                    </button>
+                    </Link>
+                    <img 
+                        src={trash} 
+                        alt="trash" 
+                        className="trash edit-delete"
+                        onClick={this.handleDelete}
+                    />
                 </div>
             </article>
         )

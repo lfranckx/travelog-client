@@ -1,11 +1,18 @@
 .login-section {
+    margin: 0 auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 200px;
 }
 
-.auth-form > * { 
-    margin: 10px;
+
+.login-form .name-input {
+    justify-content: center;
+    
 }
 
-.input-box > label {
-    margin: 0 10px;
+.login-form label, .login-form input {
+    font-size: 20px;
 }

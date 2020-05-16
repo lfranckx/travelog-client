@@ -2,10 +2,6 @@
     padding: 20px 0;
 }
 
-.edit-article-section input[type="file"]{
-    display: none;
-}
-
 .edit-article-section label {
     height: 60px;
     width: 200px;
@@ -14,18 +10,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.file-container {
-    display: flex;
-    align-items: center;
-}
-
-.addphoto {
-    height: 40px;
-    width: 40px;
-}
-
-.file-name {
-    font-size: 20px;
-}
-
