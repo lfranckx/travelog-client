@@ -4,7 +4,6 @@ import ArticleContext from '../../Contexts/ArticleContext';
 import ArticleApiService from '../../Services/article-api-service';
 import TokenService from '../../Services/token-service';
 import { Link } from 'react-router-dom';
-// import trash from '../../icons/trash.png';
 
 export default class Comments extends Component {
     static contextType = ArticleContext;

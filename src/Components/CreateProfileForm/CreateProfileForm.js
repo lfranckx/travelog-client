@@ -93,7 +93,9 @@ export default class CreateProfileForm extends Component {
                         required
                     />
                 </div>
-                <button type='submit'>Submit</button>
+                <div className="form-button">
+                    <button type='submit'>Submit</button>
+                </div>
             </form>
         );
     }

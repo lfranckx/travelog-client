@@ -36,6 +36,22 @@ export default class ProfilePage extends Component {
         if (user.length === 0) {
             return <div className="loading">Loading...</div>
         }
+
+        if (usersArticles.length === 0) {
+            return (
+                <section className="profile-page">
+                    <div className="profile-page-container">
+                        <img 
+                            className="profile-image"
+                            src={user.profile_image} 
+                            alt="author-profile" />
+                        <h2>{user.name}</h2>
+                    </div>
+                    <p className="profile-about">{user.about}</p>
+                    <Link to={`/editprofile/${username}`}>Edit Profile</Link>
+                </section>
+            )
+        }
         return (
             <>
                 <section className="profile-page">

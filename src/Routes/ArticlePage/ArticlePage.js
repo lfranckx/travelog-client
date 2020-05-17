@@ -28,7 +28,11 @@ export default class ArticlePage extends Component {
     }
 
     renderArticle() {
+        const noimage = "https://travelog-files.s3-us-west-1.amazonaws.com/icons/noimage.png";
         const { article, user, comments } = this.context;
+        if (!article.image_url) {
+            article.image_url = noimage;
+        }
         // Link to user's profile page if on their article page
         if (user.username === article.username) {
             return (

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './AuthorsListItem.css';
 import { Link } from 'react-router-dom';
-import trash from '../../icons/trash.png';
-import pencil from '../../icons/pencil.png';
 import ArticleApiService from '../../Services/article-api-service';
 import ArticleContext from '../../Contexts/ArticleContext';
 
@@ -23,9 +21,15 @@ export default class AuthorsListItem extends Component {
 
 
     render() {
+        const noimage = "https://travelog-files.s3-us-west-1.amazonaws.com/icons/noimage.png";
+        const trash = "https://travelog-files.s3-us-west-1.amazonaws.com/icons/trash.png";
+        const pencil = "https://travelog-files.s3-us-west-1.amazonaws.com/icons/pencil.png";
         const { article } = this.props;
         const { user } = this.context;
         const date = article.date.slice(0, 16);
+        if (!article.image_url) {
+            article.image_url = noimage;
+        }
 
         if (user.username !== article.username) {
             return (

@@ -7,9 +7,9 @@ export default class ArticlesListItem extends Component {
     static contextType = ArticleContext;
 
     render() {
+        const noimage = "https://travelog-files.s3-us-west-1.amazonaws.com/icons/noimage.png";
         const { article, authors } = this.props;
         const date = article.date.slice(0, 16);
-        console.log(article.date);
 
         let authorObject;
         authors.map(author => {
@@ -20,7 +20,9 @@ export default class ArticlesListItem extends Component {
         if (!authorObject) {
             return <div className="loading">Loading...</div>
         }
-        
+        if (!article.image_url) {
+            article.image_url = noimage;
+        }
         return (
             <article>
                 <div className="article-container">

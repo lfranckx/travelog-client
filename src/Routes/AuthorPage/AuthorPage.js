@@ -57,7 +57,6 @@ export default class AuthorPage extends Component {
     }
 
     render() {
-        console.log('authorPage context', this.context);
         const { error, author } = this.context;        
         let content;
         if (error) {
