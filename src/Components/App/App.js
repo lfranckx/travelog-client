@@ -68,7 +68,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('context', this.context);
+    // console.log('context', this.context);
         
     return (
       <>
