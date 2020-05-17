@@ -14,7 +14,7 @@ const ArticleContext = React.createContext({
     articlesList: [],
     authorsList: [],
     usersArticles: nullUsersArticles,
-    menuOpen: false,
+    active: false,
     setError: () => {},
     clearError: () => {},
     setArticle: () => {},
@@ -30,8 +30,7 @@ const ArticleContext = React.createContext({
     setUsersArticles: () => {},
     clearUsersArticles: () => {},
     updateSearch: () => {},
-    toggleMenuOpen: () => {},
-    toggleMenuClose: () => {}
+    toggleActive: () => {},
 });
 export default ArticleContext;
 
@@ -46,7 +45,7 @@ export class ArticleProvider extends Component {
         articlesList: [],
         authorsList: [],
         usersArticles: [],
-        menuOpen: false
+        active: false
     };
 
     setError = error => {
@@ -124,12 +123,8 @@ export class ArticleProvider extends Component {
         this.setState({ search: ev.target.value.substr(0, 20) });
     };
 
-    toggleMenuOpen = () => {
-        this.setState({ menuOpen: true});
-    };
-
-    toggleMenuClose = () => {
-        this.setState({ menuOpen: false});
+    toggleActive = () => {
+        this.setState({ active: !this.state.active });
     };
 
     render() {
@@ -143,7 +138,7 @@ export class ArticleProvider extends Component {
             articlesList: this.state.articlesList,
             authorsList: this.state.authorsList,
             usersArticles: this.state.usersArticles,
-            menuOpen: this.state.menuOpen,
+            active: this.state.active,
             setError: this.setError,
             clearError: this.clearError,
             setArticle: this.setArticle,
@@ -159,8 +154,7 @@ export class ArticleProvider extends Component {
             setUsersArticles: this.setUsersArticles,
             clearUsersArticles: this.clearUsersArticles,
             updateSearch: this.updateSearch,
-            toggleMenuOpen: this.toggleMenuOpen,
-            toggleMenuClose: this.toggleMenuClose
+            toggleActive: this.toggleActive
         };
         
         return (

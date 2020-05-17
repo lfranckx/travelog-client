@@ -1,12 +1,7 @@
-.comment-form textarea {
-    padding: 10px;
+.comments-section {
+    margin-top: 10px;
 }
 
-.post {
-    padding: 6px 16px;
-}
-
-/* Comments List */
 ul > li {
     list-style-type: none;
 }
@@ -49,7 +44,15 @@ ul > li {
 
 .comment-text {
     margin: 0;
-    background-color: #f3f3f3;
+    background-color: #efefef;
     padding: 15px;
     white-space: pre-line;
+}
+
+.comment-form textarea {
+    padding: 10px;
+}
+
+.post {
+    padding: 6px 16px;
 }

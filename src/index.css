@@ -4,6 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #27374c;
+  background: url('') no-repeat center center/cover;
 }
 
 code {
@@ -86,6 +87,11 @@ button {
 
 .date {
   color: #27374c;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
 }
 
 .hidden {

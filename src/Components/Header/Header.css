@@ -3,6 +3,8 @@ header {
     top: 0;
     width: 100%;
     z-index: 3;
+    /* background-color: #f9feff; */
+    background-color: #fdfdfd;
     box-shadow: 0px 2px 20px rgb(169, 169, 169);
 }
 
@@ -137,7 +139,7 @@ h1 {
 /* Media Queries */
 
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
     .nav-link {
         display: none;
     }

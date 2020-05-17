@@ -1,12 +1,7 @@
-.edit-profile-section {
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-}
-
 .edit-profile-form {
     text-align: center;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .edit-profile-form label {

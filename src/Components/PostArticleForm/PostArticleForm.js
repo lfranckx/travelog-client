@@ -117,7 +117,9 @@ export default class PostArticleForm extends Component {
                         required
                     />
                 </div>
-                <button type="submit">Publish</button>
+                <div className="form-button">
+                    <button type="submit">Publish</button>
+                </div>
             </form>
         )
     }

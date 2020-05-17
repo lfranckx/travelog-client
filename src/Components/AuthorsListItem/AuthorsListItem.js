@@ -30,16 +30,17 @@ export default class AuthorsListItem extends Component {
         if (user.username !== article.username) {
             return (
                 <article>
-                <Link to={`/article/${article.id}`}>
-                    <img src={article.image_url} alt="thumbnail" className="thumbnail"/>
-                </Link>
-                <Link to={`/article/${article.id}`} className="list-item-container">
-                    <h3>{article.title}</h3>
-                    <h4>{article.description}</h4>
-                    <div className="date">{date}</div>
-                    <div>Read more</div>
-                </Link>
-            </article>
+                    <Link to={`/article/${article.id}`}>
+                        <img src={article.image_url} alt="thumbnail" className="thumbnail"/>
+                    </Link>
+                    <Link to={`/article/${article.id}`} className="center">
+                        <h3>{article.title}</h3>
+                        <h4>{article.description}</h4>
+                        <div className="date">{date}</div>
+                        <div>Read more</div>
+                    </Link>
+                    <div></div>
+                </article>
             )
         }
         return (
