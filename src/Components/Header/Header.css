@@ -5,7 +5,7 @@ header {
     z-index: 3;
     /* background-color: #f9feff; */
     background-color: #fdfdfd;
-    box-shadow: 0px 2px 20px rgb(169, 169, 169);
+    box-shadow: 0px 2px 20px rgba(30, 65, 93, 0.85);
 }
 
 nav {

@@ -5,10 +5,6 @@ import IdleService from '../../Services/idle-service';
 import { Link } from 'react-router-dom';
 import ArticleContext from '../../Contexts/ArticleContext';
 import SearchBar from '../Searchbar/Searchbar';
-import Logo from '../../icons/bootprint.png';
-import world from '../../icons/world.png';
-import notepad from '../../icons/notepad.png';
-import profile from '../../icons/profile.png';
 import Hamburger from '../Hamburger/Hamburger';
 
 export default class Header extends Component {
@@ -21,6 +17,10 @@ export default class Header extends Component {
     }
 
     renderLogOutLink() {
+        const world = 'https://travelog-files.s3-us-west-1.amazonaws.com/icons/world.png';
+        const notepad = 'https://travelog-files.s3-us-west-1.amazonaws.com/icons/notepad.png';
+        const profile = 'https://travelog-files.s3-us-west-1.amazonaws.com/icons/profile.png';
+    
         const { user } = this.context;
         if (!user.profile_image) {
             user.profile_image = profile;
@@ -64,6 +64,7 @@ export default class Header extends Component {
     }
 
     render() {
+        const Logo = 'https://travelog-files.s3-us-west-1.amazonaws.com/icons/bootprint.png';
         return (
             <header>
                 <nav>
