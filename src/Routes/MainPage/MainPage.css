@@ -5,3 +5,12 @@
     background-color: #fdfdfd;
     box-shadow: 4px 4px 10px rgba(30, 65, 93, 0.85);
 }
+
+.main-page-articles > div {
+    text-align: center;
+}
+
+#sub {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}

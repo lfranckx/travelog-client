@@ -64,13 +64,19 @@ class MainPage extends Component {
     render() {
         const { error } = this.context;
         return (
-            <section className="main-page-articles">
-                <h2>Stories,</h2>
-                {error
-                    ? <p className='error' >There was an error try again</p>
-                    : this.renderArticles()
-                }
-            </section>
+            <>
+                <section className="main-page-articles">
+                    <div>
+                        <h2>Share authentic travel stories</h2>
+                        <h3 id="sub">Connect with other travelers and inspire</h3>
+                    </div>
+                    <h3 id="stories">Stories,</h3>
+                    {error
+                        ? <p className='error' >There was an error try again</p>
+                        : this.renderArticles()
+                    }
+                </section>
+            </>
         );
     }
 }
