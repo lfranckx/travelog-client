@@ -39,3 +39,19 @@
         font-size: 14px;
     }
 }
+
+@media (max-width: 430px) {
+    .sign-up-form {
+        display: block;
+    }
+
+    .name-box {
+        display: block;
+    }
+
+    .password-box {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+    }
+}

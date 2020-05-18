@@ -33,7 +33,7 @@ export default class AuthorsListItem extends Component {
 
         if (user.username !== article.username) {
             return (
-                <article>
+                <article className="authors-article">
                     <Link to={`/article/${article.id}`}>
                         <img src={article.image_url} alt="thumbnail" className="thumbnail"/>
                     </Link>

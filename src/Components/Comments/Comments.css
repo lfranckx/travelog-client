@@ -15,7 +15,6 @@ ul > li {
     align-items: top;
     flex-direction: row;
     width: 95%;
-    padding: 10px;
     font-size: 1rem;
     border-radius: 3px;
     margin-bottom: 10px;
@@ -39,7 +38,7 @@ ul > li {
 .comment-user {
     margin: 0;
     position: relative;
-    top: 5px;
+    top: 8px;
 }
 
 .comment-text {
@@ -56,4 +55,18 @@ ul > li {
 
 .post {
     padding: 6px 16px;
+}
+
+@media (max-width: 425px) {
+    .comment {
+        flex-direction: column;
+    }
+
+    .comment > a {
+        justify-content: center;
+    }
+
+    .comment-text {
+        margin-top: 20px;
+    }
 }
