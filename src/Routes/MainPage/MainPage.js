@@ -32,6 +32,14 @@ class MainPage extends Component {
 
     renderArticles() {
         const { articlesList, authorsList } = this.context; 
+        if (articlesList.length === 0) {
+            return (
+                <div className="loader">
+                    <div className="spinner"></div>
+                </div>
+            ); 
+        }
+        
         // sort by date closest to current date
         articlesList.sort(function(a, b) {
             return new Date(b.date) - new Date(a.date);
@@ -57,7 +65,7 @@ class MainPage extends Component {
         const { error } = this.context;
         return (
             <section className="main-page-articles">
-                <h2>Stories</h2>
+                <h2>Stories,</h2>
                 {error
                     ? <p className='error' >There was an error try again</p>
                     : this.renderArticles()

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage component renders log in page without crashing 1`] = `
+<section
+  className="login-section"
+>
+  <h2>
+    Login
+  </h2>
+  <LoginForm
+    onSubmitSuccess={[Function]}
+  />
+</section>
+`;

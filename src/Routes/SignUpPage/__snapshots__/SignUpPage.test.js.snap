@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpPage component renders sign up page without crashing 1`] = `
+<Fragment>
+  <section
+    className="sign-up-section"
+  >
+    <h2>
+      Register
+    </h2>
+    <SignUpForm
+      onSubmitSuccess={[Function]}
+    />
+  </section>
+</Fragment>
+`;

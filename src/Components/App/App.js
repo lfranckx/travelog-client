@@ -68,7 +68,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log('context', this.context);
+    console.log('context', this.context);
         
     return (
       <>
@@ -116,10 +116,6 @@ class App extends Component {
               path="/editprofile/:username"
               component={EditProfilePage}
             />
-            {/* <PrivateRoute 
-              path="/bookmarks"
-              component={BookmarksPage}
-            /> */}
           </Switch>
         </main>
       </>

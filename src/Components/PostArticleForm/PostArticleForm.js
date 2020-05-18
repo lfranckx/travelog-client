@@ -85,6 +85,7 @@ export default class PostArticleForm extends Component {
                         name="file" 
                         aria-label='file'
                         className="file"
+                        required
                     />
                 </div>
                 <div>
@@ -103,7 +104,7 @@ export default class PostArticleForm extends Component {
                         name='description'
                         aria-label='description'
                         className='description'
-                        placeholder='tell a little description...'
+                        placeholder='tell a short description'
                         required
                     />
                 </div>

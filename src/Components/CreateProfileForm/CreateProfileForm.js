@@ -29,26 +29,46 @@ export default class CreateProfileForm extends Component {
         let data = new FormData();
         data.append('image', fileSelected);
 
-        if (fileSelected) {
-            AuthorApiService.uploadFile(data)
-                .then(res => {
-                    (!res.ok)
-                        ? res.json().then(e => Promise.reject(e))
-                        : res.json()
-                    .then(data => {
-                        user.profile_image = data.image_url;
-                        AuthorApiService.updateAuthor(user)
-                        .then(this.context.setUser(user))
-                        .then(this.props.onSubmitForm)
-                        .catch(this.context.setError);
-                    })
-                })
-        } else if (!fileSelected) {
-            AuthorApiService.updateAuthor(author)
-                .then(this.context.setUser(author))
-                .then(this.props.onSubmitForm)
-                .catch(this.context.setError);
-        }
+        AuthorApiService.updateAuthor(author)
+            .then(this.context.setUser(author))
+            .then(res => {
+                if (fileSelected) {
+                    AuthorApiService.uploadFile(data)
+                        .then(res => {
+                            (!res.ok) ? res.json().then(e => Promise.reject(e))
+                                : res.json()
+                            .then(data => {
+                                author.profile_image = data.image_url;
+                                AuthorApiService.updateAuthor(author)
+                                .then(this.context.setUser(author))
+                                .then(this.props.onSubmitForm)
+                                .catch(this.context.setError);
+                            })
+                        });
+                }
+            })
+            .then(this.props.onSubmitForm)
+            .catch(this.context.setError);
+
+        // if (fileSelected) {
+        //     AuthorApiService.uploadFile(data)
+        //         .then(res => {
+        //             (!res.ok) ? res.json().then(e => Promise.reject(e))
+        //                 : res.json()
+        //             .then(data => {
+        //                 user.profile_image = data.image_url;
+        //                 AuthorApiService.updateAuthor(user)
+        //                 .then(this.context.setUser(user))
+        //                 .then(this.props.onSubmitForm)
+        //                 .catch(this.context.setError);
+        //             })
+        //         });
+        // } else if (!fileSelected) {
+            // AuthorApiService.updateAuthor(author)
+            //     .then(this.context.setUser(author))
+                // .then(this.props.onSubmitForm)
+                // .catch(this.context.setError);
+        // }
     }
 
     render() {
@@ -90,7 +110,6 @@ export default class CreateProfileForm extends Component {
                         rows='18'
                         name='about'
                         aria-label='about'
-                        required
                     />
                 </div>
                 <div className="form-button">

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorsListItem renders an article given props 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "active": false,
+      "addComment": [Function],
+      "article": Object {},
+      "articlesList": Array [],
+      "author": Object {},
+      "authorsList": Array [],
+      "clearArticle": [Function],
+      "clearAuthor": [Function],
+      "clearError": [Function],
+      "clearUser": [Function],
+      "clearUsersArticles": [Function],
+      "comments": Array [],
+      "error": null,
+      "search": "",
+      "setArticle": [Function],
+      "setArticlesList": [Function],
+      "setAuthor": [Function],
+      "setAuthorsList": [Function],
+      "setComments": [Function],
+      "setError": [Function],
+      "setUser": [Function],
+      "setUsersArticles": [Function],
+      "toggleActive": [Function],
+      "updateSearch": [Function],
+      "user": Object {},
+      "usersArticles": Array [],
+    }
+  }
+>
+  <AuthorsListItem
+    author="Sam Smith"
+    body="And they say in truth that a man is made of desire. As his desire is, so is his faith. As his faith is, so are his works. As his works are, so he becomes. — The Supreme Teaching of the Upanishads"
+    date="Mon May 18 2020 00:00:00 GMT-0700 (Pacific Daylight Time)"
+    description="Favorite quotes"
+    id={1}
+    image_url="http://placehold.it/500x500"
+    profile_image="http://placehold.it/500x500"
+    title="Vagabonding"
+    user_id={1}
+    username="user1"
+  />
+</ContextProvider>
+`;

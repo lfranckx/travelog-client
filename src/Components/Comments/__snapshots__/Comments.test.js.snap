@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments renders an article given props 1`] = `<ArticleComments />`;

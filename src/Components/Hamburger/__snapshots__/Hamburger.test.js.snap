@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hamburger component renders page without crashing 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "active": false,
+      "addComment": [Function],
+      "article": Object {},
+      "articlesList": Array [],
+      "author": Object {},
+      "authorsList": Array [],
+      "clearArticle": [Function],
+      "clearAuthor": [Function],
+      "clearError": [Function],
+      "clearUser": [Function],
+      "clearUsersArticles": [Function],
+      "comments": Array [],
+      "error": null,
+      "search": "",
+      "setArticle": [Function],
+      "setArticlesList": [Function],
+      "setAuthor": [Function],
+      "setAuthorsList": [Function],
+      "setComments": [Function],
+      "setError": [Function],
+      "setUser": [Function],
+      "setUsersArticles": [Function],
+      "toggleActive": [Function],
+      "updateSearch": [Function],
+      "user": Object {},
+      "usersArticles": Array [],
+    }
+  }
+>
+  <Hamburger
+    about="This is my about me."
+    name="Sam Smith"
+    profile_image="http://placehold.it/500x500"
+    username="user1"
+  />
+</ContextProvider>
+`;

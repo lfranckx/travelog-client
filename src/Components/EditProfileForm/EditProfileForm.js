@@ -96,7 +96,6 @@ export default class EditProfileForm extends Component {
                         name='about'
                         aria-label='about'
                         defaultValue={user.about}
-                        required
                     />
                 </div>
                 <div className="form-button">

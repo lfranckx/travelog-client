@@ -20,6 +20,7 @@ code {
 h1, h2, h3, h4 {
   margin: 0px;
   color: #27374c;
+  font-family: 'PT Serif';
 }
 
 h3, h4 {
@@ -27,7 +28,7 @@ h3, h4 {
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 
 h3 {
@@ -101,4 +102,28 @@ button {
 
 .hidden {
   display: none;
+}
+
+/* Loader Aninimation */
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+  font-size: 75px;
+}
+
+.spinner {
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 15px solid rgba(145, 216, 189, 0.4);
+  border-top: 15px solid #a2deb7;
+  animation: spin 2s infinite;
+}
+
+@keyframes spin {
+  100%{
+    transform: rotate(360deg);
+  }
 }

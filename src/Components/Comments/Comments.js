@@ -59,18 +59,20 @@ export default class Comments extends Component {
 
 function ArticleComments({ comments = []}) {
     return (
-        <ul className="comments-list">
-            {comments.map(comment =>
-                <li key={comment.id} className="comment">
-                    <Link to={`/profile/${comments.username}`}>
-                        <img className="comment-profile"
-                            src={comment.profile_image} 
-                            alt="profile" />
-                        <p className="comment-user">{comment.author_name}</p>
-                    </Link>
-                    <p className="comment-text">{comment.comment}</p>
-                </li>
-            )}
-        </ul>
+        <section className="comments-section">
+            <ul className="comments-list">
+                {comments.map(comment =>
+                    <li key={comment.id} className="comment">
+                        <Link to={`/profile/${comments.username}`}>
+                            <img className="comment-profile"
+                                src={comment.profile_image} 
+                                alt="profile" />
+                            <p className="comment-user">{comment.author_name}</p>
+                        </Link>
+                        <p className="comment-text">{comment.comment}</p>
+                    </li>
+                )}
+            </ul>
+        </section>
     );
 }

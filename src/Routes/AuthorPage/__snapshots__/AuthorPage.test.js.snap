@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorPage component renders form given props 1`] = `
+<ArticleProvider>
+  <AuthorPage
+    match={
+      Object {
+        "params": Object {},
+      }
+    }
+  >
+    <div
+      className="loading"
+    >
+      Loading...
+    </div>
+  </AuthorPage>
+</ArticleProvider>
+`;

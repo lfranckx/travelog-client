@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage component renders page without crashing 1`] = `
+<ArticleProvider>
+  <MainPage>
+    <section
+      className="main-page-articles"
+    >
+      <h2>
+        Stories,
+      </h2>
+      <div
+        className="loader"
+      >
+        <div
+          className="spinner"
+        />
+      </div>
+    </section>
+  </MainPage>
+</ArticleProvider>
+`;

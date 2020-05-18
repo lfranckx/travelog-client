@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateProfileForm renders form given props 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "active": false,
+      "addComment": [Function],
+      "article": Object {},
+      "articlesList": Array [],
+      "author": Object {},
+      "authorsList": Array [],
+      "clearArticle": [Function],
+      "clearAuthor": [Function],
+      "clearError": [Function],
+      "clearUser": [Function],
+      "clearUsersArticles": [Function],
+      "comments": Array [],
+      "error": null,
+      "search": "",
+      "setArticle": [Function],
+      "setArticlesList": [Function],
+      "setAuthor": [Function],
+      "setAuthorsList": [Function],
+      "setComments": [Function],
+      "setError": [Function],
+      "setUser": [Function],
+      "setUsersArticles": [Function],
+      "toggleActive": [Function],
+      "updateSearch": [Function],
+      "user": Object {},
+      "usersArticles": Array [],
+    }
+  }
+>
+  <CreateProfileForm
+    handleSubmitForm={[Function]}
+  />
+</ContextProvider>
+`;

@@ -47,6 +47,7 @@ ul > li {
     background-color: #efefef;
     padding: 15px;
     white-space: pre-line;
+    border-radius: 25px;
 }
 
 .comment-form textarea {
