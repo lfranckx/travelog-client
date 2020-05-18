@@ -110,7 +110,7 @@ export default class SignUpForm extends Component {
                         required
                     />
                 </div>
-                <button className="submit"
+                <button className="submit register"
                     type="submit">Register</button>
             </form>
         );

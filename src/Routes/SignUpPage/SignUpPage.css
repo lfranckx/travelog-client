@@ -29,3 +29,13 @@
 .sign-up-form button:active {
     transform: translateY(2px);
 }
+
+@media (max-width: 500px) {
+    .name-input label, .name-input input {
+        font-size: 14px;
+    }
+
+    .password-box label, .password-box input {
+        font-size: 14px;
+    }
+}
