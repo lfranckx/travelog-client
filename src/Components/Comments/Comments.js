@@ -31,6 +31,7 @@ export default class Comments extends Component {
 
     render() {
         const { comments } = this.props;
+        
         if (TokenService.hasAuthToken()) {
             return (
                 <section className="comments-section">
@@ -53,7 +54,10 @@ export default class Comments extends Component {
                 </section>
             )
         }
-        return <ArticleComments comments={comments} />
+        if (comments.length > 0) {
+            return <ArticleComments comments={comments} />
+        }
+        return <></>
     }
 }
 
