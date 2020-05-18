@@ -4,3 +4,15 @@
     box-shadow: 1px 1px 1px rgb(169, 169, 169);
     width: 20rem;
 }
+
+@media (max-width: 780px) {
+    .searchbar input {
+        width: 12rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .searchbar input {
+        display: none;
+    }
+}

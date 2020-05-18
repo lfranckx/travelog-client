@@ -87,7 +87,9 @@ export default class ArticlePage extends Component {
                 ? <p className="error">Article not found</p>
                 : <p className="error">There was an error</p>;
         } else if(!article.id) {
-            content = <div className="loading">Loading...</div>;
+            content =   <div className="loader">
+                            <div className="spinner"></div>
+                        </div>
         } else {
             content = this.renderArticle();
         }

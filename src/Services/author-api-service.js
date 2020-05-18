@@ -27,9 +27,7 @@ const AuthorApiService = {
                 : res.json()    
         );
     },
-    getByUsername(username) {
-        console.log('GET AUTHOR BY USERNAME', username);
-        
+    getByUsername(username) {        
         return fetch(`${config.API_ENDPOINT}/authors/${username}`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -54,7 +52,6 @@ const AuthorApiService = {
         return (Response, json);
     },
     updateAuthor(author) {
-        console.log('sending author', author);
         return fetch(`${config.API_ENDPOINT}/authors/${author.username}`, {
             method: 'PATCH',
             headers: {
@@ -73,9 +70,7 @@ const AuthorApiService = {
             }
         });
     },
-    uploadFile(file) {
-        console.log('sending file', file);
-        
+    uploadFile(file) {        
         const options = {
             method: 'POST',
             headers: {

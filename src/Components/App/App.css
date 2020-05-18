@@ -7,8 +7,17 @@ main {
 main > section {
   text-align: left;
   border-radius: 2px;
-  /* background-color: #f9feff; */
   background-color: #fdfdfd;
   box-shadow: 4px 4px 4px rgba(30, 65, 93, 0.85);
   padding: 20px 40px;
+}
+
+@media(max-width: 500px) {
+  main {
+    padding: 20px;
+  }
+
+  main > section {
+    padding: 20px;
+  }
 }

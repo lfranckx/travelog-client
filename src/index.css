@@ -127,3 +127,23 @@ button {
     transform: rotate(360deg);
   }
 }
+
+/* Media Queries */
+
+@media (max-width: 500px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+  
+  h4 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

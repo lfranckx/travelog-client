@@ -67,9 +67,7 @@ class App extends Component {
     this.forceUpdate();
   }
 
-  render() {
-    console.log('context', this.context);
-        
+  render() {        
     return (
       <>
         <Header />

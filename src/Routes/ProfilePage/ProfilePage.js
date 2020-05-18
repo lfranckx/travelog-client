@@ -34,7 +34,9 @@ export default class ProfilePage extends Component {
         const { username } = this.props.match.params;
         const { user, usersArticles } = this.context;
         if (user.length === 0) {
-            return <div className="loading">Loading...</div>
+            return  (<div className="loader">
+                        <div className="spinner"></div>
+                    </div>)
         }
 
         if (usersArticles.length === 0) {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ArticleContext from '../../Contexts/ArticleContext';
 import ArticleApiService from '../../Services/article-api-service';
-// import addphoto from '../../icons/addphoto.png';
 
 export default class EditArticleForm extends Component {
     static defaultProps = {

@@ -18,7 +18,7 @@ export default class ArticlesListItem extends Component {
             return authorObject;
         });
         if (!authorObject) {
-            return <div className="loading">Loading...</div>
+            return  <div className="loading">Loading...</div>
         }
         if (!article.image_url) {
             article.image_url = noimage;
@@ -37,7 +37,7 @@ export default class ArticlesListItem extends Component {
                             className="author">
                             {article.author}
                         </Link>
-                        <div>{date}</div>
+                        <div className="article-date">{date}</div>
                     </div>
                 </div>
                 

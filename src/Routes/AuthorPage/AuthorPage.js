@@ -32,6 +32,24 @@ export default class AuthorPage extends Component {
 
     renderAuthor() {        
         const { author, usersArticles } = this.context;
+        if (!author.profile_image) {
+            author.profile_image = "https://travelog-files.s3-us-west-1.amazonaws.com/icons/profile.png";
+        }
+
+        if (usersArticles.length === 0) {
+            return (
+                <section className="author-page">
+                    <div className="author-page-container">
+                        <img 
+                            className="profile-image"
+                            src={author.profile_image} 
+                            alt="author-profile" />
+                        <h2>{author.name}</h2>
+                    </div>
+                    <p>{author.about}</p>
+                </section>
+            );
+        }
         return (
             <>
                 <section className="author-page">
@@ -64,7 +82,9 @@ export default class AuthorPage extends Component {
                 ? <p className="error">Author not found</p>
                 : <p className="error">There was an error</p>;
         } else if(!author.username) {
-            content = <div className="loading">Loading...</div>;
+            content =   <div className="loader">
+                            <div className="spinner"></div>
+                        </div>
         } else {
             content = this.renderAuthor();
         }

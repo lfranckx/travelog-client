@@ -35,3 +35,10 @@
     background-size: cover;
     background-position: 50% 50%;
 }
+
+/* Media Queries */
+@media (max-width: 500px) {
+    .author {
+        font-size: 16px;
+    }
+}

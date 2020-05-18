@@ -9,7 +9,6 @@
 }
 
 /* First and Last Name */
-
 .name-box {
     display: flex;
     flex-direction: row;
@@ -26,17 +25,6 @@
     display: block;
     margin: 10px;
 }
-
-/* Button */
-/* .sign-up-form button {
-    color: white;
-    background-color: #287FB8;
-    border: 2px solid #287FB8;
-    font-size: 16px;
-    padding: 6px 12px;
-    border-radius: 3px;
-    font-weight: bold;
-} */
 
 .sign-up-form button:active {
     transform: translateY(2px);

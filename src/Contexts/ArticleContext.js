@@ -49,7 +49,6 @@ export class ArticleProvider extends Component {
     };
 
     setError = error => {
-        console.error(error);
         this.setState({ error });
     };
 
@@ -58,44 +57,34 @@ export class ArticleProvider extends Component {
     };
 
     setArticle = article => {
-        console.log('setting article', article);
         this.setState({ article });
     };
 
     clearArticle = () => {
-        console.log('clearing article');
         this.setArticle(nullArticle);
     };
 
     setAuthor = author => {
-        console.log('setting author', author);
         this.setState({ author });
     };
 
     clearAuthor = () => {
-        console.log('clearing author');
         this.setAuthor(nullAuthor);
     };
 
     setUser = user => {
-        console.log('setting user:', user);
         this.setState({ user });
     };
 
     clearUser = () => {
-        console.log('clearing user');
-        
         this.setState(nullUser);
     };
 
     setComments = comments => {
-        console.log('setting comments', comments);
         this.setState({ comments: comments });
     };
 
     addComment = comment => {
-        console.log('adding comment', comment);
-        
         this.setComments([
             ...this.state.comments,
             comment
@@ -115,7 +104,6 @@ export class ArticleProvider extends Component {
     };
 
     clearUsersArticles = () => {
-        console.log('clearing usersArticles');
         this.setUsersArticles(nullUsersArticles);
     };
 

@@ -13,7 +13,7 @@ export default class SearchBar extends Component {
                         type="text" 
                         name="search"
                         aria-label="search"
-                        className="search-input"
+                        className="searchbar"
                         placeholder="search by title"
                         onChange={this.context.updateSearch.bind(this)}
                     />

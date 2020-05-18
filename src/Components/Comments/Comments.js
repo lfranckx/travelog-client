@@ -63,7 +63,7 @@ function ArticleComments({ comments = []}) {
             <ul className="comments-list">
                 {comments.map(comment =>
                     <li key={comment.id} className="comment">
-                        <Link to={`/profile/${comments.username}`}>
+                        <Link to={`/author/${comment.username}`}>
                             <img className="comment-profile"
                                 src={comment.profile_image} 
                                 alt="profile" />
