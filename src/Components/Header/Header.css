@@ -45,8 +45,8 @@ h1 {
 /* Registration / Log out Links */
 
 .login {
-    color: #287FB8;
-    border: 2px solid #287FB8;
+    color: rgb(30, 107, 159);
+    border: 2px solid rgb(30, 107, 159);
     font-size: 16px;
     padding: 6px 10px;
     border-radius: 3px;
@@ -55,8 +55,8 @@ h1 {
 
 .register {
     color: white;
-    background-color: #287FB8;
-    border: 2px solid #287FB8;
+    background-color: rgb(30, 107, 159);
+    border: 2px solid rgb(30, 107, 159);
     font-size: 16px;
     padding: 6px 12px;
     border-radius: 3px;
@@ -65,8 +65,8 @@ h1 {
 
 .logout {
     color: white;
-    background-color: #287FB8;
-    border: 2px solid #287FB8;
+    background-color: rgb(30, 107, 159);
+    border: 2px solid rgb(30, 107, 159);
     font-size: 16px;
     padding: 6px 12px;
     border-radius: 3px;
@@ -76,19 +76,19 @@ h1 {
 
 .login:active {
     color: white;
-    background-color: #287FB8;
+    background-color: rgb(30, 107, 159);
 }
 
 .register:active {
-    color: #287FB8;
+    color: rgb(30, 107, 159);
     background-color: white;
-    border: 2px solid #287FB8;
+    border: 2px solid rgb(30, 107, 159);
 }
 
 .logout:active {
-    color: #287FB8;
+    color: rgb(30, 107, 159);
     background-color: white;
-    border: 2px solid #287FB8;
+    border: 2px solid rgb(30, 107, 159);;
 }
 
 .nav-link > div {

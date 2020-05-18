@@ -15,8 +15,12 @@
 }
 
 .author {
-    color: #03a87c;
+    color: #147d61;
     font-size: 18px;
+}
+
+.author:hover {
+    color: #03a87c;
 }
 
 .author-profile {
@@ -34,4 +38,8 @@
     max-width: 500px;
     background-size: cover;
     background-position: 50% 50%;
+}
+
+.read-more:hover {
+    color: #03a87c;
 }

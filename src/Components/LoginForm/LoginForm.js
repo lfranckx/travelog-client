@@ -38,23 +38,25 @@ export default class LoginForm extends Component {
             >
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                 <div className="name-input">
-                    <label>Username</label>
+                    <label for="login-user">Username</label>
                     <input
                         type="text" 
                         name='username' 
                         aria-label='username'
-                        className='username' 
+                        className='username'
+                        id='login-user' 
                         required
                     />
                 </div>
                 <div className="name-input">
-                    <label>Password</label>
+                    <label for='login-pass'>Password</label>
                     <input 
                         autoComplete="on"
                         type="password" 
                         name='password' 
                         aria-label='password'
                         className='password'
+                        id='login-pass'
                         required />
                 </div>
                 <button className="submit"

@@ -8,12 +8,14 @@ export default class SearchBar extends Component {
     render() {        
         return (
             <form className="searchbar">
-                <label className="hidden">search</label>
+                <label className="hidden"
+                    for='searchbar-input'>search</label>
                     <input 
                         type="text" 
                         name="search"
                         aria-label="search"
                         className="searchbar"
+                        id='searchbar-input'
                         placeholder="search by title"
                         onChange={this.context.updateSearch.bind(this)}
                     />
