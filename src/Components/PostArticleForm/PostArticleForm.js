@@ -43,27 +43,24 @@ export default class PostArticleForm extends Component {
             .then(article => {
                 this.context.clearArticle();
                 this.context.setArticle(article);
-                if (fileSelected) {
-                    ArticleApiService.uploadFile(data)
-                    .then(res => {
-                        (!res.ok)
-                            ? res.json().then(e => Promise.reject(e))
-                            : res.json()
-                        .then(data => {
-                            article.image_url = data.image_url;
-                            ArticleApiService.updateArticle(article)
-                            .then(this.context.setArticle(article))
-                            .then(
-                                ArticleApiService.getByUsername(user.username)
-                                .then(this.context.setUsersArticles)
-                            )
-                            .catch(this.context.setError);
-                        })
-                    })
-                }
             })
         })
-        .then(this.props.onSubmitSuccess())
+        .then(ArticleApiService.uploadFile(data)
+            .then(res => {
+                (!res.ok) ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+                .then(data => {
+                    article.image_url = data.image_url;
+                    ArticleApiService.updateArticle(article)
+                    .then(this.context.setArticle(article))
+                    .then(
+                        ArticleApiService.getByUsername(user.username)
+                        .then(this.context.setUsersArticles)
+                        .then(this.props.onSubmitSuccess())
+                    )
+                })
+            })
+        )
         .catch(this.context.setError);
     }
 

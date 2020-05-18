@@ -49,26 +49,6 @@ export default class CreateProfileForm extends Component {
             })
             .then(this.props.onSubmitForm)
             .catch(this.context.setError);
-
-        // if (fileSelected) {
-        //     AuthorApiService.uploadFile(data)
-        //         .then(res => {
-        //             (!res.ok) ? res.json().then(e => Promise.reject(e))
-        //                 : res.json()
-        //             .then(data => {
-        //                 user.profile_image = data.image_url;
-        //                 AuthorApiService.updateAuthor(user)
-        //                 .then(this.context.setUser(user))
-        //                 .then(this.props.onSubmitForm)
-        //                 .catch(this.context.setError);
-        //             })
-        //         });
-        // } else if (!fileSelected) {
-            // AuthorApiService.updateAuthor(author)
-            //     .then(this.context.setUser(author))
-                // .then(this.props.onSubmitForm)
-                // .catch(this.context.setError);
-        // }
     }
 
     render() {
