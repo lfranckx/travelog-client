@@ -9,7 +9,7 @@ export default class SearchBar extends Component {
         return (
             <form className="searchbar">
                 <label className="hidden"
-                    for='searchbar-input'>search</label>
+                    htmlFor='searchbar-input'>search</label>
                     <input 
                         type="text" 
                         name="search"

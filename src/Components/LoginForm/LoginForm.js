@@ -38,7 +38,7 @@ export default class LoginForm extends Component {
             >
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                 <div className="name-input">
-                    <label for="login-user">Username</label>
+                    <label htmlFor="login-user">Username</label>
                     <input
                         type="text" 
                         name='username' 
@@ -49,7 +49,7 @@ export default class LoginForm extends Component {
                     />
                 </div>
                 <div className="name-input">
-                    <label for='login-pass'>Password</label>
+                    <label htmlFor='login-pass'>Password</label>
                     <input 
                         autoComplete="on"
                         type="password" 

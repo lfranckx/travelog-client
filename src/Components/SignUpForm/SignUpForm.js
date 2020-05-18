@@ -58,55 +58,60 @@ export default class SignUpForm extends Component {
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                 <div className="name-box">
                     <div className="name-input">
-                        <label>First Name</label>
+                        <label htmlFor="first-name-in">First Name</label>
                         <input
                             type="text" 
                             name='first_name' 
                             aria-label='first_name'
                             className='first_name' 
+                            id='first-name-in'
                             required
                         />
                     </div>
                     <div className="name-input">
-                        <label>Last Name</label>
+                        <label htmlFor='last-name-in'>Last Name</label>
                         <input
                             type="text" 
                             name='last_name' 
                             aria-label='last_name'
                             className='last_name' 
+                            id='last-name-in'
                             required
                         />
                     </div>
                 </div>
                 <div className="name-box">
                     <div className="name-input">
-                        <label>Email</label>
+                        <label htmlFor='email-in'>Email</label>
                         <input
                             type="text" 
                             name='email' 
                             aria-label='email'
                             className='email' 
+                            id='email-in'
                             required
                         />
                     </div>
                     <div className="name-input">
-                        <label>Username</label>
+                        <label htmlFor='user-in'>Username</label>
                         <input
                             type="text" 
                             name='username' 
                             aria-label='username'
                             className='username' 
+                            id='user-in'
                             required
                         />
                     </div>
                 </div>
                 <div className="password-box">
-                    <label>Password</label>
+                    <label htmlFor='password-in'>Password</label>
                     <input
                         type="password" 
                         name='password' 
                         aria-label='password'
-                        className='password' 
+                        className='password'
+                        id='password-in' 
                         required
                     />
                 </div>

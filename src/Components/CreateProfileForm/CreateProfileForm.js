@@ -58,7 +58,7 @@ export default class CreateProfileForm extends Component {
             <form className="edit-profile-form" onSubmit={this.handleCreateProfile}>
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                 <div>
-                    <label>Select a profile image</label>
+                    <label htmlFor='create-up'>Select a profile image</label>
                 </div>
                 <div>
                     <input
@@ -68,10 +68,11 @@ export default class CreateProfileForm extends Component {
                         name="file" 
                         aria-label='file'
                         className="file"
+                        id='create-up'
                     />
                 </div>
                 <div>
-                    <label>Full Name</label>
+                    <label htmlFor='fullname-in'>Full Name</label>
                 </div>
                 <div>
                     <input className='name'
@@ -80,16 +81,18 @@ export default class CreateProfileForm extends Component {
                         aria-label='name'
                         required
                         defaultValue={user.name}
+                        id='fullname-in'
                     />
                 </div>
                 <div>
-                    <label>About</label>
+                    <label htmlFor='about-in'>About</label>
                 </div>
                 <div>
                     <textarea
                         rows='18'
                         name='about'
                         aria-label='about'
+                        id='about-in'
                     />
                 </div>
                 <div className="form-button">

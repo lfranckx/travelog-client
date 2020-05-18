@@ -41,7 +41,7 @@ export default class AuthorsListItem extends Component {
                         <h3>{article.title}</h3>
                         <h4>{article.description}</h4>
                         <div className="date">{date}</div>
-                        <div>Read more</div>
+                        <div className='readmore'>Read more</div>
                     </Link>
                     <div></div>
                 </article>

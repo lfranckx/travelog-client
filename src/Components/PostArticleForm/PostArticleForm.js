@@ -77,7 +77,7 @@ export default class PostArticleForm extends Component {
             >
                 <div>{error && <p className="error">{error}</p>}</div>
                 <div>
-                    <label>Select an image to upload</label>
+                    <label htmlFor="post-upload">Select an image to upload</label>
                     <input
                         ref={this.fileInput}
                         type="file"
@@ -85,6 +85,7 @@ export default class PostArticleForm extends Component {
                         name="file" 
                         aria-label='file'
                         className="file"
+                        id='post-upload'
                         required
                     />
                 </div>

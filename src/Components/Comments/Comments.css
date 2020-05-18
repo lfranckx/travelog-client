@@ -28,6 +28,10 @@ ul > li {
     top: 12px;
 }
 
+.comment > a:hover {
+    color: #03a87c;
+}
+
 .comment-profile {
     height: 34px;
     width: 34px;

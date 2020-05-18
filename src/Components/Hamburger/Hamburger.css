@@ -132,7 +132,8 @@
 }
 
 .menu-wrap .menu > div > div > ul > li > a {
-    color: #5ad6b5;
+    color: #6ce4c4;
+    
     transition: color 0.4s ease;
 }
 
