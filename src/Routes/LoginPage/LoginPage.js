@@ -20,6 +20,10 @@ export default class LoginPage extends Component {
         return (
             <section className="login-section">
                 <h2>Login</h2>
+                <div>
+                    <p>Demo User: Demo</p>
+                    <p>Demo Password: Demo1234!</p>
+                </div>
                 <LoginForm 
                     onSubmitSuccess={this.handleSubmitSuccess}
                 />

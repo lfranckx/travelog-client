@@ -16,3 +16,7 @@
 .login-form label, .login-form input {
     font-size: 20px;
 }
+
+.login-section > div {
+    text-align: left;
+}
