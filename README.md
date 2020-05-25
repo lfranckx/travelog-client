@@ -7,7 +7,7 @@ https://travelog-client.now.sh/
 https://github.com/lfranckx/travelog-api
 
 ## SUMMARY:
-This app serves as a platform for people to find articles on anything related to travel. Users who are registered can share posts with an image and comment on other articles including their own. Users can also create their own profile containing their about me and a profile image. From their profile page they have access to articles they've written where they can edit and delete. 
+This app serves as a platform for people to find articles on anything related to travel. Users who are registered can share posts with an image and comment on other articles including their own. Users can also create their own profile containing their about me and a profile image. From their profile page they have access to articles they've written which they can edit and delete. 
 
 ## TECHNOLOGIES:
 This app uses AWS S3 Buckets to upload and store images.  This is all in conjuction with Heroku where the server is deployed. The app is built with React and Node.js.  The API uses JWT authentication with for logging users in and bcrypt to to crypt passwords.  The server also uses multer in order to communicate with the S3 bucket. 
